@@ -4,7 +4,7 @@ const NotFound = () => {
   return (
     <div className={styles.NotFound}>
       <div>Page is not found.</div>
-      <Link to="/MyProjectShop" className={styles.Link}>
+      <Link to="/" className={styles.Link}>
         Back to Shop
       </Link>
     </div>

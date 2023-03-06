@@ -14,7 +14,7 @@ const Header = () => {
           <div className={styles.navbar}>
             <ul>
               <li>
-                <Link to='/MyProjectShop/wishlist' className={styles.navbar__icon}>
+                <Link to='/wishlist' className={styles.navbar__icon}>
                   <HeaderSvgStar />
                 </Link>
               </li>
