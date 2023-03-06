@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import img from "../img/logo-black.png";
 import HeaderSvgStar from "../iconsvg/HeaderSvgStar";
 import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
@@ -13,9 +14,9 @@ const Header = () => {
           <div className={styles.navbar}>
             <ul>
               <li>
-                <a href="/" className={styles.navbar__icon}>
+                <Link to='/MyProjectShop/wishlist' className={styles.navbar__icon}>
                   <HeaderSvgStar />
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="/" className={styles.navbar__icon}>
