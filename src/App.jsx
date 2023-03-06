@@ -6,8 +6,8 @@ function App() {
   return (
     <div>
     <Routes>
-      <Route path="/MyProjectShop" element={<MainPage/>}/>
-      <Route path="MyProjectShop/wishlist" element={<Wishlist/>}/>
+      <Route path="/" element={<MainPage/>}/>
+      <Route path="/wishlist" element={<Wishlist/>}/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>
     </div>
