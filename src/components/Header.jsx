@@ -1,7 +1,7 @@
-import styles from "../styles/Header.module.scss";
 import img from "../img/logo-black.png";
 import HeaderSvgStar from "../iconsvg/HeaderSvgStar";
 import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
+import styles from "../styles/Header.module.scss";
 const Header = () => {
   return (
     <header className={styles.header}>

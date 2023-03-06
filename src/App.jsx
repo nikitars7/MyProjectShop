@@ -1,12 +1,13 @@
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import MainPage from "./pages/MainPage";
+import Wishlist from "./pages/Wishlist";
+import {Routes,Route} from 'react-router-dom'
 function App() {
   return (
     <div>
-      <Header />
-      <Main />
-      <Footer />
+    <Routes>
+      <Route path="/" element={<MainPage/>}/>
+      <Route path="/wishlist" element={<Wishlist/>}/>
+    </Routes>
     </div>
   );
 }

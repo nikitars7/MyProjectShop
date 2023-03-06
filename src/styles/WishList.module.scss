@@ -1,0 +1,20 @@
+@import '../App.module.scss';
+
+
+.wishlist__title {
+   text-align: center;
+   margin-bottom: 60px;
+ }
+ 
+ @media (max-width: 1200px) {
+   .wishlist__title {
+     margin-bottom: 40px;
+   }
+ }
+ 
+ @media (max-width: 768px) {
+   .wishlist__title {
+     margin-bottom: 20px;
+   }
+ }
+ 
