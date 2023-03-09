@@ -1,23 +1,25 @@
+import { useContext } from "react";
+import { ItemContex } from "../contex/WishContext";
 import classNames from "classnames";
 import WishSvgGarbage from "../iconsvg/WishSvgGarbage";
-import img from "../img/product-07.jpg";
 import styles from "../styles/WishListItem.module.scss";
-const WishListItem = () => {
+const WishListItem = ({ product }) => {
+  const { name, price, imageUrl, id } = product;
+  const { removeFromWishList } = useContext(ItemContex);
+  const handleRemove = () => {
+    removeFromWishList(id);
+  };
   return (
     <div className={styles.item}>
       <div className={styles.item__content}>
-        <button className={styles.item__delete}>
+        <button onClick={handleRemove} className={styles.item__delete}>
           <WishSvgGarbage />
         </button>
         <div className={styles.item__body}>
-          <img
-            src={img}
-            alt="Flowers cotton dress"
-            className={styles.item__image}
-          />
+          <img src={imageUrl} alt={name} className={styles.item__image} />
           <div className={classNames(styles.media_body, styles.mw_210)}>
-            <p className={styles.item__title}>Flowers cotton dress</p>
-            <p className={styles.item__price}>$29.00</p>
+            <p className={styles.item__title}>{name}</p>
+            <p className={styles.item__price}>{`$${price}`}</p>
           </div>
         </div>
       </div>

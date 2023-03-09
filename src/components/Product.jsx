@@ -1,22 +1,29 @@
+import { useContext } from "react";
+import { ItemContex } from "../contex/WishContext";
 import ProductSvgWish from "../iconsvg/ProductSvgWish";
 import styles from "../styles/Product.module.scss";
-const Product = (props) => {
-  const { children, img } = props;
+const Product = ({ product }) => {
+  const { name, price, imageUrl } = product;
+
+  const { addToWishList } = useContext(ItemContex);
+  const handleClick = () => {
+    addToWishList(product);
+  };
   return (
     <div className={styles.product}>
-      <div className={styles.product__image}>
-        <a href="/" className={styles.product__image_block}>
-          <img src={img} alt="Product " />
+      <div className={styles.products__image}>
+        <a href="/" className={styles.products__image_block}>
+          <img src={imageUrl} alt={name} />
         </a>
-        <a href="/" className={styles.add_to_wishlist}>
+        <button onClick={handleClick} className={styles.add_to_wishlist}>
           <ProductSvgWish />
-        </a>
+        </button>
       </div>
       <div className={styles.product__body}>
         <h3>
-          <a href="/">{children}</a>
+          <a href="/">{name}</a>
         </h3>
-        <p>$79.00</p>
+        <p>{`$${price}`}</p>
       </div>
     </div>
   );
