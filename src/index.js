@@ -3,14 +3,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { HashRouter } from "react-router-dom";
-import { ShopProvider } from "./contex/WishContext";
+import { Provider } from 'react-redux';
+import store from './store/store';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <ShopProvider>
+     <Provider store={store}>
         <App />
-      </ShopProvider>
+     </Provider>
     </HashRouter>
   </React.StrictMode>
 );

@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { ItemContex } from "../contex/WishContext";
+import { useDispatch } from "react-redux";
+import { removeFromWishList } from "../store/wishSlice";
 import classNames from "classnames";
 import WishSvgGarbage from "../iconsvg/WishSvgGarbage";
 import styles from "../styles/WishListItem.module.scss";
 const WishListItem = ({ product }) => {
   const { name, price, imageUrl, id } = product;
-  const { removeFromWishList } = useContext(ItemContex);
+  const dispatch = useDispatch();
   const handleRemove = () => {
-    removeFromWishList(id);
+    dispatch(removeFromWishList(id));
   };
   return (
     <div className={styles.item}>
