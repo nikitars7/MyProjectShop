@@ -14,15 +14,15 @@ const Header = () => {
           <div className={styles.navbar}>
             <ul>
               <li>
-                <Link to='/wishlist' className={styles.navbar__icon}>
+                <Link to="/wishlist" className={styles.navbar__icon}>
                   <HeaderSvgStar />
                 </Link>
               </li>
               <li>
-                <a href="/" className={styles.navbar__icon}>
+                <Link to="/cart" className={styles.navbar__icon}>
                   <HeaderSvgBag />
                   <span className={styles.number}>2</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

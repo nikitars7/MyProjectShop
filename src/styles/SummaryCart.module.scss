@@ -1,0 +1,21 @@
+@import './Buttons.module.scss';
+.summary__title {
+   font-size: 24px;
+ }
+ 
+ .summary__body {
+   padding-top: 20px;
+   border-top: 1px solid rgba(0, 0, 0, 0.125);
+   margin-bottom: 40px;
+ }
+ 
+ .summary__line {
+   font-weight: 700;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+ 
+ .btn_full_width {
+   width: 100%;
+ }
