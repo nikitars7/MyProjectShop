@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/MyProjectShop/static/css/main.0bfbc3a8.css",
-    "main.js": "/MyProjectShop/static/js/main.9e3a596a.js",
+    "main.css": "/MyProjectShop/static/css/main.1a70a9ce.css",
+    "main.js": "/MyProjectShop/static/js/main.058dfd41.js",
     "static/media/image-home-07.jpg": "/MyProjectShop/static/media/image-home-07.50554b49271f0ef2ae15.jpg",
     "index.html": "/MyProjectShop/index.html",
-    "main.0bfbc3a8.css.map": "/MyProjectShop/static/css/main.0bfbc3a8.css.map",
-    "main.9e3a596a.js.map": "/MyProjectShop/static/js/main.9e3a596a.js.map"
+    "main.1a70a9ce.css.map": "/MyProjectShop/static/css/main.1a70a9ce.css.map",
+    "main.058dfd41.js.map": "/MyProjectShop/static/js/main.058dfd41.js.map"
   },
   "entrypoints": [
-    "static/css/main.0bfbc3a8.css",
-    "static/js/main.9e3a596a.js"
+    "static/css/main.1a70a9ce.css",
+    "static/js/main.058dfd41.js"
   ]
 }
