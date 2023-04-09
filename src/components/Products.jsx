@@ -1,19 +1,8 @@
-import { useState, useEffect } from "react";
+import products from "../myProducts";
 import Product from "./Product";
 import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const getAllProducts = async () => {
-      const res = await fetch(
-        "https://6404ecfc40597b65de2d48a6.mockapi.io/Products"
-      );
-      const data = await res.json();
-      setProducts(data);
-    };
-    getAllProducts();
-  }, []);
   return (
     <section className={styles.products}>
       <div className={styles.container}>
