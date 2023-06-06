@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeFromWishList } from "../store/wishSlice";
+import { addToCart } from "../store/cartSlice";
 import classNames from "classnames";
 import WishSvgGarbage from "../iconsvg/WishSvgGarbage";
 import styles from "../styles/WishListItem.module.scss";
@@ -9,6 +10,10 @@ const WishListItem = ({ product }) => {
   const handleRemove = () => {
     dispatch(removeFromWishList(id));
   };
+  const handleAdd = () => {
+    dispatch(addToCart(product))
+    dispatch(removeFromWishList(id));
+  }
   return (
     <div className={styles.item}>
       <div className={styles.item__content}>
@@ -24,7 +29,7 @@ const WishListItem = ({ product }) => {
         </div>
       </div>
       <div className={styles.item__buttons}>
-        <button className={classNames(styles.btn, styles.btn_dark)}>
+        <button onClick={handleAdd} className={classNames(styles.btn, styles.btn_dark)}>
           Add To Cart
         </button>
       </div>

@@ -6,12 +6,14 @@ const Wishlist = () => {
   const { wishItems } = useSelector((store) => store.wishSlice);
   return (
     <div className={styles.container}>
+      <div className={styles.wishlist__items}>
       <h2 className={styles.wishlist__title}>Wishlist</h2>
       <div className={styles.list}>
         {wishItems &&
           wishItems.map((product) => (
             <WishListItem product={product} key={product.id} />
           ))}
+      </div>
       </div>
     </div>
   );

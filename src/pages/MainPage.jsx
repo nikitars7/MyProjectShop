@@ -1,10 +1,8 @@
-import {Header,Main,Footer} from './index'
+import {Main} from './index'
 const MainPage = () => {
   return (
     <div>
-      <Header />
       <Main />
-      <Footer />
     </div>
   )
 }

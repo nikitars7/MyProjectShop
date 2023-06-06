@@ -9,6 +9,9 @@
    flex-direction: column;
    }
  }
+ .item:last-child{
+  margin-bottom:20px;
+ }
  
  .item + .item {
    margin-top: 20px;

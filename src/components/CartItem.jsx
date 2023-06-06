@@ -1,26 +1,32 @@
-import ProductImg from "../img/product-07.jpg";
 import CartRemoveSvg from "../iconsvg/CartRemoveSvg";
 import styles from "../styles/CartItem.module.scss";
-const CartItem = () => {
+import { removeFromCart } from "../store/cartSlice";
+import { useDispatch } from "react-redux";
+const CartItem = ({item}) => {
+  const { id, name, price, imageUrl } = item;
+  const dispatch = useDispatch();
+  const handleRemove = () => {
+   dispatch(removeFromCart(id))
+  }
   return (
     <div className={styles.item}>
       <div className={styles.item__content}>
-        <button href="#" className={styles.item__delete_btn}>
+        <button onClick={handleRemove}href="#" className={styles.item__delete_btn}>
           <CartRemoveSvg />
         </button>
         <img
-          src={ProductImg}
+          src={imageUrl}
           alt="Partridge Bar Stool"
           className={styles.item__image}
         />
         <div>
           <p className={styles.item__category}>Dress</p>
           <a href="#" className={styles.item__name}>
-            Oversize cotton sweatshirt
+            {name}
           </a>
         </div>
       </div>
-      <p>$750.00</p>
+      <p>${price}</p>
     </div>
   );
 };

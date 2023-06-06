@@ -17,4 +17,11 @@
      margin-bottom: 20px;
    }
  }
- 
+ .wishlist__items{
+  display: flex;
+  flex-direction: column;
+ }
+
+ .list{
+  flex: 1 1 100%;
+ }

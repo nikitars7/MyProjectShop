@@ -9,7 +9,12 @@ const wishListSlice = createSlice({
   reducers: {
     addToWishList: (state, action) => {
       const { payload } = action;
-      state.wishItems.push(payload);
+      const copyItem = state.wishItems.find(item => item.id === payload.id);
+      if(copyItem){
+        alert('You already have this item')
+      }else{
+        state.wishItems.push(payload);
+      }
     },
     removeFromWishList: (state, action) => {
       const { payload } = action;

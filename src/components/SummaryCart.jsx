@@ -1,13 +1,13 @@
 import styles from "../styles/SummaryCart.module.scss";
 import classNames from "classnames";
-const SummaryCart = () => {
+const SummaryCart = ({totalPrice}) => {
   return (
     <div className={styles.summary}>
       <h4 className={styles.summary__title}>Summary</h4>
       <div className={styles.summary__body}>
         <div className={styles.summary__line}>
           <div>Total</div>
-          <div>$2020.00</div>
+          <div>${totalPrice}</div>
         </div>
       </div>
       <button

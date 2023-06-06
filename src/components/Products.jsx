@@ -1,16 +1,19 @@
-import { useState,useEffect } from "react";
+import {useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
 import Product from "./Product";
 import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
+import { fetchProducts } from "../store/productSlice";
 const Products = () => {
-  const [products,setProducts] = useState([]);
+  const products = useSelector((state) => state.productSlice.products)
+  const dispatch = useDispatch();
   useEffect(()=>{
-    const getProducts = async() => {
-      const response = await fetch('https://6404ecfc40597b65de2d48a6.mockapi.io/Products');
-      const data = await response.json();
-      setProducts(data);
+    try{
+      dispatch(fetchProducts())
     }
-    getProducts();
+    catch(err){
+     console.log(err.message)
+    }
   },[])
   return (
     <section className={styles.products}>

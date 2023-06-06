@@ -18,4 +18,13 @@
    display: flex;
    flex-direction: column;
  }
+
+ .cart__empty{
+  margin: 60px auto;
+  max-width: 500px;
+  text-align: center;
+  h2{
+    margin-bottom: 50px;
+  }
+ }
  
