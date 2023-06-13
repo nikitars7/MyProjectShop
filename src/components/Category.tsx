@@ -3,7 +3,7 @@ import imgBannerS from "../img/banner-21.jpg";
 import imgBannerT from "../img/banner-22.jpg";
 import CategoryItem from "./CategoryItem";
 import styles from "../styles/Category.module.scss";
-const Category = () => {
+const Category:React.FC = () => {
   return (
     <section className={styles.category}>
       <div className={styles.container}>

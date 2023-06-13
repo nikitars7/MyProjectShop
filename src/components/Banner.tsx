@@ -1,7 +1,7 @@
 import img from "../img/image-home-07.jpg";
 import classNames from "classnames";
 import styles from "../styles/Banner.module.scss";
-const Banner = () => {
+const Banner:React.FC = () => {
   return (
     <section className={styles.banner}>
       <div className={styles.container}>

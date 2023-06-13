@@ -1,6 +1,10 @@
 import styles from '../styles/CategoryItem.module.scss'
 import classNames from 'classnames'
-const CategoryItem = ({img,alt}) => {
+type CategItemProps = {
+  img:string;
+  alt:string;
+}
+const CategoryItem:React.FC<CategItemProps> = ({img,alt}) => {
   return (
     <div className={styles.category__item}>
     <img src={img} alt={alt} />
