@@ -4,8 +4,9 @@ import HeaderSvgStar from "../iconsvg/HeaderSvgStar";
 import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
 import styles from "../styles/Header.module.scss";
 import { useSelector } from "react-redux";
-const Header = () => {
-  const { cartItems } = useSelector((store) => store.cartSlice);
+import { RootState } from "../store/store";
+const Header:React.FC = () => {
+  const { cartItems } = useSelector((store:RootState) => store.cartSlice);
   const location = useLocation();
   const { pathname } = location;
   return (

@@ -1,10 +1,13 @@
 import { useDispatch } from "react-redux";
 import { removeFromWishList } from "../store/wishSlice";
-import { addToCart } from "../store/cartSlice";
+import { CartProduct, addToCart } from "../store/cartSlice";
 import classNames from "classnames";
 import WishSvgGarbage from "../iconsvg/WishSvgGarbage";
 import styles from "../styles/WishListItem.module.scss";
-const WishListItem = ({ product }) => {
+interface WishListProps{
+  product:CartProduct
+}
+const WishListItem:React.FC<WishListProps>= ({ product }) => {
   const { name, price, imageUrl, id } = product;
   const dispatch = useDispatch();
   const handleRemove = () => {

@@ -1,6 +1,9 @@
 import styles from "../styles/SummaryCart.module.scss";
 import classNames from "classnames";
-const SummaryCart = ({totalPrice}) => {
+type SummaryProps = {
+  totalPrice:number,
+}
+const SummaryCart:React.FC<SummaryProps> = ({totalPrice}) => {
   return (
     <div className={styles.summary}>
       <h4 className={styles.summary__title}>Summary</h4>

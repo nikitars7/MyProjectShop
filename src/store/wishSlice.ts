@@ -1,13 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { CartProduct } from "./cartSlice";
+interface WishInit {
+  wishItems:CartProduct[],
+}
+const initialState:WishInit = {
   wishItems: [],
 };
 const wishListSlice = createSlice({
   name: "wishSlice",
   initialState,
   reducers: {
-    addToWishList: (state, action) => {
+    addToWishList: (state, action:PayloadAction<CartProduct>) => {
       const { payload } = action;
       const copyItem = state.wishItems.find(item => item.id === payload.id);
       if(copyItem){
@@ -16,7 +19,7 @@ const wishListSlice = createSlice({
         state.wishItems.push(payload);
       }
     },
-    removeFromWishList: (state, action) => {
+    removeFromWishList: (state, action:PayloadAction<number>) => {
       const { payload } = action;
       const removedItems = state.wishItems.filter(
         (product) => product.id !== payload

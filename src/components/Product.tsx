@@ -2,7 +2,11 @@ import { useDispatch } from "react-redux";
 import { addToWishList } from "../store/wishSlice";
 import ProductSvgWish from "../iconsvg/ProductSvgWish";
 import styles from "../styles/Product.module.scss";
-const Product = ({ product }) => {
+import { CartProduct } from "../store/cartSlice";
+type ProductProps = {
+  product:CartProduct,
+}
+const Product:React.FC<ProductProps> = ({ product }) => {
   const { name, price, imageUrl } = product;
 
   const dispatch = useDispatch();

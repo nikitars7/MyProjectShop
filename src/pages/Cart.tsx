@@ -3,8 +3,9 @@ import CartEmpty from "../components/CartEmpty";
 import SummaryCart from "../components/SummaryCart";
 import styles from "../styles/Cart.module.scss";
 import { useSelector } from "react-redux";
-const Cart = () => {
-  const { cartItems, totalPrice } = useSelector((store) => store.cartSlice);
+import { RootState } from "../store/store";
+const Cart:React.FC = () => {
+  const { cartItems, totalPrice } = useSelector((store:RootState) => store.cartSlice);
   const totalItems = cartItems.reduce((acc,item) => acc+item.price,0)
   if(!totalItems){
     return <CartEmpty/>

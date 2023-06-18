@@ -1,8 +1,11 @@
 import CartRemoveSvg from "../iconsvg/CartRemoveSvg";
 import styles from "../styles/CartItem.module.scss";
-import { removeFromCart } from "../store/cartSlice";
+import { CartProduct, removeFromCart } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
-const CartItem = ({item}) => {
+interface CartItemProps {
+  item:CartProduct,
+}
+const CartItem:React.FC<CartItemProps> = ({item}) => {
   const { id, name, price, imageUrl } = item;
   const dispatch = useDispatch();
   const handleRemove = () => {
@@ -11,7 +14,7 @@ const CartItem = ({item}) => {
   return (
     <div className={styles.item}>
       <div className={styles.item__content}>
-        <button onClick={handleRemove}href="#" className={styles.item__delete_btn}>
+        <button onClick={handleRemove} className={styles.item__delete_btn}>
           <CartRemoveSvg />
         </button>
         <img

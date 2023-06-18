@@ -1,17 +1,18 @@
 import {useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Product from "./Product";
 import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
 import { fetchProducts } from "../store/productSlice";
-const Products = () => {
-  const products = useSelector((state) => state.productSlice.products)
-  const dispatch = useDispatch();
+import { RootState, useAppDispatch } from "../store/store";
+const Products:React.FC = () => {
+  const products = useSelector((state:RootState) => state.productSlice.products)
+  const dispatch = useAppDispatch();
   useEffect(()=>{
     try{
       dispatch(fetchProducts())
     }
-    catch(err){
+    catch(err:any){
      console.log(err.message)
     }
   },[])

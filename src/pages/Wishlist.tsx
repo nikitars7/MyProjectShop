@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import WishListItem from "../components/WishListItem";
 import styles from "../styles/WishList.module.scss";
-const Wishlist = () => {
+import { RootState } from "../store/store";
+const Wishlist:React.FC = () => {
   document.title = "Wishlish";
-  const { wishItems } = useSelector((store) => store.wishSlice);
+  const { wishItems } = useSelector((store:RootState) => store.wishSlice);
   return (
     <div className={styles.container}>
       <div className={styles.wishlist__items}>
