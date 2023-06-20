@@ -5,10 +5,22 @@ import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
 import styles from "../styles/Header.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { useEffect, useRef } from "react";
 const Header:React.FC = () => {
   const { cartItems } = useSelector((store:RootState) => store.cartSlice);
+  const { wishItems } = useSelector((store:RootState) => store.wishSlice);
+  const isMounted = useRef(false);
   const location = useLocation();
   const { pathname } = location;
+  useEffect(()=>{
+    if(isMounted.current){
+      let json = JSON.stringify(cartItems);
+      localStorage.setItem('Cart',json);
+      let wishJson = JSON.stringify(wishItems);
+      localStorage.setItem('Wish',wishJson)
+    }
+   isMounted.current = true;
+  },[cartItems,wishItems])
   return (
     <header className={styles.header}>
       <div className={styles.container}>

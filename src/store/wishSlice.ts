@@ -1,10 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CartProduct } from "./cartSlice";
+import { getWishProducts } from "../utils/localStorage";
 interface WishInit {
   wishItems:CartProduct[],
 }
+const {wishItems} = getWishProducts();
 const initialState:WishInit = {
-  wishItems: [],
+  wishItems,
 };
 const wishListSlice = createSlice({
   name: "wishSlice",
