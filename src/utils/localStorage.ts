@@ -1,4 +1,4 @@
-import { CartProduct } from "../store/cartSlice";
+import { CartProduct } from "../store/slices/cartSlice";
 import { calcTotaPrice } from "./calcTotalPrice";
 export const getProductsFromLS = () => {
 let data = localStorage.getItem('Cart');

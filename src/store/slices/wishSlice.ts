@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CartProduct } from "./cartSlice";
-import { getWishProducts } from "../utils/localStorage";
+import { getWishProducts } from "../../utils/localStorage";
 interface WishInit {
   wishItems:CartProduct[],
 }

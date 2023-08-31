@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { removeFromWishList } from "../store/wishSlice";
-import { CartProduct, addToCart } from "../store/cartSlice";
+import { removeFromWishList } from "../store/slices/wishSlice";
+import { CartProduct, addToCart } from "../store/slices/cartSlice";
 import classNames from "classnames";
 import WishSvgGarbage from "../iconsvg/WishSvgGarbage";
 import styles from "../styles/WishListItem.module.scss";

@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import wishListReducer from "./wishSlice";
-import cartSliceReducer from "./cartSlice";
-import productSliceReducer from "./productSlice";
+import wishListReducer from "./slices/wishSlice";
+import cartSliceReducer from "./slices/cartSlice";
+import productSliceReducer from "./slices/productSlice";
+import authSliceReducer from './slices/userAuthSlice';
 import { useDispatch } from "react-redux";
 export const store =  configureStore({
   reducer: {
     wishSlice: wishListReducer,
     cartSlice:cartSliceReducer,
     productSlice:productSliceReducer,
+    authSlice:authSliceReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

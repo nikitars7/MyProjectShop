@@ -1,4 +1,4 @@
-import { CartProduct } from "../store/cartSlice";
+import { CartProduct } from "../store/slices/cartSlice";
 
 export const calcTotaPrice = (cartItems: CartProduct[]) => {
  return cartItems.reduce((init, item) => {

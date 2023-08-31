@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Product from "./Product";
 import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
-import { fetchProducts } from "../store/productSlice";
+import { fetchProducts } from "../store/slices/productSlice";
 import { RootState, useAppDispatch } from "../store/store";
 const Products:React.FC = () => {
   const products = useSelector((state:RootState) => state.productSlice.products)

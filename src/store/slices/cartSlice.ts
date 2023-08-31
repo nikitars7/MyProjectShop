@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { getProductsFromLS } from "../utils/localStorage";
-import { calcTotaPrice } from "../utils/calcTotalPrice";
+import { getProductsFromLS } from "../../utils/localStorage";
+import { calcTotaPrice } from "../../utils/calcTotalPrice";
 export type CartProduct = {
   id:number,
   imageUrl:string,

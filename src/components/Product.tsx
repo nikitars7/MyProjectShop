@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { addToWishList } from "../store/wishSlice";
+import { addToWishList } from "../store/slices/wishSlice";
 import ProductSvgWish from "../iconsvg/ProductSvgWish";
 import styles from "../styles/Product.module.scss";
-import { CartProduct } from "../store/cartSlice";
+import { CartProduct } from "../store/slices/cartSlice";
 type ProductProps = {
   product:CartProduct,
 }

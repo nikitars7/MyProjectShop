@@ -1,6 +1,6 @@
 import CartRemoveSvg from "../iconsvg/CartRemoveSvg";
 import styles from "../styles/CartItem.module.scss";
-import { CartProduct, removeFromCart } from "../store/cartSlice";
+import { CartProduct, removeFromCart } from "../store/slices/cartSlice";
 import { useDispatch } from "react-redux";
 interface CartItemProps {
   item:CartProduct,
