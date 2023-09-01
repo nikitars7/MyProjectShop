@@ -4,30 +4,53 @@ import HeaderSvgStar from "../iconsvg/HeaderSvgStar";
 import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
 import styles from "../styles/Header.module.scss";
 import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../store/store";
 import { RootState } from "../store/store";
 import { useEffect, useRef } from "react";
-const Header:React.FC = () => {
-  const { cartItems } = useSelector((store:RootState) => store.cartSlice);
-  const { wishItems } = useSelector((store:RootState) => store.wishSlice);
+import { useAuth } from "../hooks/useAuth";
+import { logOut } from "../store/slices/userAuthSlice";
+import Button from "../UI/button/Button";
+const Header: React.FC = () => {
+  const { cartItems } = useSelector((store: RootState) => store.cartSlice);
+  const { wishItems } = useSelector((store: RootState) => store.wishSlice);
+  const { isAuth } = useAuth();
   const isMounted = useRef(false);
+  const dispatch = useAppDispatch();
   const location = useLocation();
   const { pathname } = location;
-  useEffect(()=>{
-    if(isMounted.current){
+  useEffect(() => {
+    if (isMounted.current) {
       let json = JSON.stringify(cartItems);
-      localStorage.setItem('Cart',json);
+      localStorage.setItem("Cart", json);
       let wishJson = JSON.stringify(wishItems);
-      localStorage.setItem('Wish',wishJson)
+      localStorage.setItem("Wish", wishJson);
     }
-   isMounted.current = true;
-  },[cartItems,wishItems])
+    isMounted.current = true;
+  }, [cartItems, wishItems]);
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.header__wrapper}>
-          <Link to="/">
-            <img src={img} alt="Logotype" />
-          </Link>
+          {isAuth ? (
+            <div className={styles.header__auth}>
+              <Button handleClick={handleLogOut}>Log out</Button>
+            </div>
+          ) : (
+            <div className={styles.header__auth}>
+              {" "}
+              <Link to="/login">
+                <Button>Sign in</Button>
+              </Link>
+            </div>
+          )}
+          <div className={styles.header__logo}>
+            <Link to="/">
+              <img src={img} alt="Logotype" />
+            </Link>
+          </div>
           <div className={styles.navbar}>
             <ul>
               {pathname !== "/wishlist" ? (

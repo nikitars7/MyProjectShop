@@ -21,9 +21,7 @@ const Register = () => {
     .catch(()=> alert('Invalid email/password'))
   }
   return (
-    <div>
     <Form handleClick={handleRegister} title='Sign up'/>
-    </div>
   )
 }
 

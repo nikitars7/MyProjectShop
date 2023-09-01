@@ -1,0 +1,18 @@
+@import '../App.module.scss';
+
+.Register{
+margin: 0px auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+min-height: 100vh;
+align-items: center;
+gap:10px;
+a{
+   text-decoration: underline;
+}
+}
+.Title{
+   font-size: 30px;
+   margin-bottom: 10px;
+}

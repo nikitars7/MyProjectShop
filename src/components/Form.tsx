@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import '../styles/Form.scss'
 interface FormProps {
    title:string,
    handleClick: (email:string,password:string) => void;
@@ -21,7 +22,7 @@ const Form:React.FC<FormProps> = ({title,handleClick}) => {
    handleClick(email,password)
    }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form__block">
          <label>Email</label>    
       <input type='email'{...register('email',{required:'Email is required'})}
@@ -36,7 +37,7 @@ const Form:React.FC<FormProps> = ({title,handleClick}) => {
       />
        {errors?.password && <p className="form__error">{errors.password.message}</p>}
       </div>
-      <button  className="button " type="submit" disabled={!isValid}>
+      <button  className="button__form " type="submit" disabled={!isValid}>
       {title}
       </button>
     </form>

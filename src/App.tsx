@@ -4,7 +4,7 @@ import { router } from "./router";
 
 function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           {router.map((route) => (
@@ -16,7 +16,7 @@ function App() {
           ))}
         </Route>
       </Routes>
-    </div>
+      </>
   );
 }
 

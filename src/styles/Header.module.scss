@@ -1,5 +1,12 @@
 .header {
    padding: 20px 0;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   min-height: 70px;
+  z-index: 100;
+  background-color: rgba(255,255,255,0.75);
  }
   .container {
    width: 100%;
@@ -13,10 +20,27 @@
  .header__wrapper {
    display: flex;
    align-items: center;
-   justify-content: space-between;
+   gap:5px;
  }
- 
+ .header__auth{
+  flex: 0 1 33.333%;
+  display: flex;
+  gap:15px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 5px;
+ }
+ .header__logo{
+  flex: 0 1 33.333%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ .navbar{
+  flex: 0 1 33.333%;
+ }
  .navbar ul {
+  align-self: end;
    display: flex;
    flex-wrap: wrap;
    align-items: center;
@@ -29,7 +53,7 @@
  .navbar__icon {
    position: relative;
    display: block;
-   padding: 0 10px;
+   padding: 0px 10px;
  }
  
  .navbar__icon svg {
