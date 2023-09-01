@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Login from "../components/Login"
-const LoginPage = () => {
+const LoginPage:React.FC = () => {
   return (
     <div>
      <h1>Login</h1>

@@ -1,6 +1,14 @@
 import { useForm } from "react-hook-form";
-const Form = ({title,handleClick}) => {
-   const {register,handleSubmit,formState:{errors,isValid,},} = useForm({
+interface FormProps {
+   title:string,
+   handleClick: (email:string,password:string) => void;
+}
+type FormData = {
+   email:string,
+   password:string,
+}
+const Form:React.FC<FormProps> = ({title,handleClick}) => {
+   const {register,handleSubmit,formState:{errors,isValid,},} = useForm<FormData>({
       defaultValues:{
          email:'',
          password:'',
@@ -8,7 +16,7 @@ const Form = ({title,handleClick}) => {
       mode:'all',
    })
  
-   const onSubmit = (data) => {
+   const onSubmit = (data:FormData) => {
    const {email,password} = data;
    handleClick(email,password)
    }

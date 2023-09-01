@@ -6,7 +6,7 @@ import Form from "./Form"
 const Login = () => {
   const dispatch= useAppDispatch();
   const navigate = useNavigate();
-  const handleLogin = (email,password) => {
+  const handleLogin = (email:string,password:string) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
     .then(({user}) => {
@@ -14,7 +14,7 @@ const Login = () => {
       dispatch(login({
        email:user.email,
        id:user.uid,
-       token:user.accessToken,
+       token:user.refreshToken,
       }))
       navigate('/')
      })

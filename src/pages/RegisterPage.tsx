@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Register from "../components/Register";
 
-const RegisterPage = () => {
+const RegisterPage:React.FC = () => {
   return (
     <div>
       <h1>Register</h1>

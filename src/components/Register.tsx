@@ -6,7 +6,7 @@ import { login } from "../store/slices/userAuthSlice";
 const Register = () => {
   const dispatch= useAppDispatch();
   const navigate = useNavigate();
-  const handleRegister = (email,password) => {
+  const handleRegister = (email:string,password:string) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
     .then(({user}) => {
@@ -14,7 +14,7 @@ const Register = () => {
      dispatch(login({
       email:user.email,
       id:user.uid,
-      token:user.accessToken,
+      token:user.refreshToken,
      }))
      navigate('/')
     })
