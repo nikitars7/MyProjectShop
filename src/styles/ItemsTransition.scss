@@ -1,0 +1,15 @@
+.item-enter {
+   transform: translateX(-350px);
+ }
+ .item-enter-active {
+   transform: translateX(0px);
+   transition: all 0.5s ease-in;
+ }
+ .item-exit {
+   opacity: 1;
+ }
+ .item-exit-active {
+   transform: translateX(-350px);
+   transition: all 0.3s ease-in;
+ }
+ 

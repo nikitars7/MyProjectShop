@@ -2,13 +2,17 @@ import CartItem from "../components/CartItem";
 import CartEmpty from "../components/CartEmpty";
 import SummaryCart from "../components/SummaryCart";
 import styles from "../styles/Cart.module.scss";
+import '../styles/ItemsTransition.scss'
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
-const Cart:React.FC = () => {
-  const { cartItems, totalPrice } = useSelector((store:RootState) => store.cartSlice);
-  const totalItems = cartItems.reduce((acc,item) => acc+item.price,0)
-  if(!totalItems){
-    return <CartEmpty/>
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+const Cart: React.FC = () => {
+  const { cartItems, totalPrice } = useSelector(
+    (store: RootState) => store.cartSlice
+  );
+  const totalItems = cartItems.reduce((acc, item) => acc + item.price, 0);
+  if (!totalItems) {
+    return <CartEmpty />;
   }
   document.title = "Shopping Cart";
   return (
@@ -17,9 +21,13 @@ const Cart:React.FC = () => {
       <div className={styles.container}>
         <div className={styles.cart__grid}>
           <div className={styles.cart__list}>
-            {cartItems.map((item) => {
-             return  <CartItem key={item.id}item={item} />;
-            })}
+            <TransitionGroup>
+              {cartItems.map((item) => (
+                <CSSTransition key={item.id} timeout={500} classNames="item">
+                  <CartItem item={item} />
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
           </div>
           <SummaryCart totalPrice={totalPrice} />
         </div>

@@ -39,12 +39,21 @@ const Header: React.FC = () => {
               <Button handleClick={handleLogOut}>Log out</Button>
             </div>
           ) : (
-            <div className={styles.header__auth}>
-              {" "}
-              <Link to="/login">
-                <Button>Sign in</Button>
-              </Link>
-            </div>
+            <>
+              {pathname === "/login" ? (
+                <div className={styles.header__auth}>
+                  <Link to="/register">
+                    <Button>Sign up</Button>
+                  </Link>
+                </div>
+              ) : (
+                <div className={styles.header__auth}>
+                  <Link to="/login">
+                    <Button>Sign in</Button>
+                  </Link>
+                </div>
+              )}
+            </>
           )}
           <div className={styles.header__logo}>
             <Link to="/">

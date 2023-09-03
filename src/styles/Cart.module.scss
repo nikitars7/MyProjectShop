@@ -4,8 +4,10 @@
    font-size: 36px;
    line-height: 1.44;
    color: #000000;
-   text-align: center;
-   margin-bottom: 60px;
+   text-align: left;
+   margin: 0px 0px 60px 30px;
+   padding-top: 80px;
+   border-bottom: 1px solid #000;
  }
  
  .cart__grid {
@@ -20,11 +22,15 @@
  }
 
  .cart__empty{
-  margin: 60px auto;
-  max-width: 500px;
-  text-align: center;
-  h2{
-    margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px auto;
+  min-height: 100vh;
+  padding: 0 10px;
+  img{
+    max-width: 100%;
   }
  }
  
