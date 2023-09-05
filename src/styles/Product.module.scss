@@ -55,10 +55,11 @@
    background-color: #fff;
    border: 1px;
    cursor: pointer;
- }
- 
- .add_to_wishlist:hover {
-   background-color: #000;
+   @media (any-hover:hover){
+    &:hover{
+      background-color: #000;
+    }
+   }
  }
  
  .add_to_wishlist svg {
