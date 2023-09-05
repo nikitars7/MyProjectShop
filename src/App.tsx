@@ -7,16 +7,12 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          {router.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={route.component}
-            />
+          {router.map(({ path, component }) => (
+            <Route key={path} path={path} element={component} />
           ))}
         </Route>
       </Routes>
-      </>
+    </>
   );
 }
 

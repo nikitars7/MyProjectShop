@@ -1,16 +1,16 @@
-import Banner from '../components/Banner'
-import Category from '../components/Category'
-import Products from '../components/Products'
-import Footer from '../components/Footer'
-const Main:React.FC = () => {
+import Banner from "../components/Banner";
+import Category from "../components/Category";
+import Products from "../components/Products";
+import Footer from "../components/Footer";
+const Main: React.FC = () => {
   return (
-    <div>
-       <Banner/>
-       <Category/>
-       <Products/>
-       <Footer/>
-    </div>
-  )
-}
+    <>
+      <Banner />
+      <Category />
+      <Products />
+      <Footer />
+    </>
+  );
+};
 
-export default Main
+export default Main;

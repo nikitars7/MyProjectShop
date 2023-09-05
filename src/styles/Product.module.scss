@@ -1,3 +1,4 @@
+@import './Buttons.module.scss';
 .product {
    position: relative;
    display: flex;
@@ -10,8 +11,8 @@
  
  .product__body {
    padding-top: 16px;
+
  }
- 
  .product__body h3 {
    font-size: 18px;
    font-weight: 500;

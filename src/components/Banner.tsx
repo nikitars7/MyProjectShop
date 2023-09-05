@@ -6,6 +6,7 @@ const Banner:React.FC = () => {
     <section className={styles.banner}>
       <div className={styles.container}>
         <div className={styles.banner__wrapper}>
+          <div className={styles.banner__slide}>
           <img src={img} alt="" />
           <div className={styles.banner__overlay}>
             <div>
@@ -14,6 +15,7 @@ const Banner:React.FC = () => {
                 Shop Now
               </a>
             </div>
+          </div>
           </div>
         </div>
       </div>

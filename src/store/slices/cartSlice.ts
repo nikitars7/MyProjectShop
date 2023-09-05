@@ -6,6 +6,7 @@ export type CartProduct = {
   imageUrl:string,
   name:string,
   price:number,
+  count:number,
   }
   interface CartStateInit {
     cartItems:CartProduct[],

@@ -6,7 +6,7 @@ interface CartItemProps {
   item:CartProduct,
 }
 const CartItem:React.FC<CartItemProps> = ({item}) => {
-  const { id, name, price, imageUrl } = item;
+  const { id, name, price, imageUrl,count } = item;
   const dispatch = useDispatch();
   const handleRemove = () => {
    dispatch(removeFromCart(id))
@@ -29,7 +29,7 @@ const CartItem:React.FC<CartItemProps> = ({item}) => {
           </a>
         </div>
       </div>
-      <p>${price}</p>
+      <p>${price*count}</p>
     </div>
   );
 };

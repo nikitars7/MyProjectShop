@@ -27,3 +27,10 @@
  .list{
   flex: 1 1 100%;
  }
+ .wish__modal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap:30px;
+ }

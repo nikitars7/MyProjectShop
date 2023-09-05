@@ -16,9 +16,26 @@ const wishListSlice = createSlice({
       const { payload } = action;
       const copyItem = state.wishItems.find(item => item.id === payload.id);
       if(copyItem){
-        alert('You already have this item')
+        copyItem.count++;
       }else{
-        state.wishItems.push(payload);
+        state.wishItems.push({
+          ...payload,
+          count:1,
+        });
+      }
+    },
+    plusItem:(state,action:PayloadAction<CartProduct>) => {
+      const { payload } = action;
+      const copyItem = state.wishItems.find(item => item.id === payload.id);
+      if(copyItem){
+        copyItem.count++;
+      }
+    },
+    minusItem:(state,action:PayloadAction<CartProduct>) => {
+      const { payload } = action;
+      const copyItem = state.wishItems.find(item => item.id === payload.id);
+      if(copyItem){
+        copyItem.count--;
       }
     },
     removeFromWishList: (state, action:PayloadAction<number>) => {
@@ -30,5 +47,5 @@ const wishListSlice = createSlice({
     },
   },
 });
-export const { addToWishList, removeFromWishList } = wishListSlice.actions;
+export const { addToWishList, removeFromWishList,plusItem,minusItem } = wishListSlice.actions;
 export default wishListSlice.reducer;

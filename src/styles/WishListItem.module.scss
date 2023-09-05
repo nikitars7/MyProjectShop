@@ -7,6 +7,7 @@
    padding: 20px;
    @media (max-width:540px) {
    flex-direction: column;
+   gap:15px;
    }
  }
  .item:last-child{
@@ -69,3 +70,45 @@
    font-size: 14px;
  }
 
+ .item__count{
+display: flex;
+align-items: center;
+gap:10px;
+
+ }
+.item__button{
+  align-items: center;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  padding: 0;
+  width: 32px;
+  cursor:pointer;
+  &_minus{
+    svg path:first-of-type{
+      display: none;
+    }
+  }
+  svg path{
+    fill:#000;
+  }
+  &_outlined{
+    background-color: #fff;
+    border-color: #EEEEEE;
+    
+  }
+  @media (any-hover:hover) {
+    &:hover{
+      border-color: #000;
+    }
+  }
+  &_disabled{
+    cursor:inherit;
+    svg path{
+      fill:#EEEEEE;
+    }
+    &:hover{
+      border-color: #EEEEEE;
+    }
+  }
+}
