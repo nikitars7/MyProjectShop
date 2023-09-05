@@ -13,34 +13,40 @@ const Wishlist: React.FC = () => {
   const { wishItems } = useSelector((store: RootState) => store.wishSlice);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   return (
-    <div className={styles.container}>
-      <MyModal isVisible={isVisible} setIsVisible={setIsVisible}>
-        <div className={styles.wish__modal}>
-          <h2>If you want to add this Item to cart you should be authorized</h2>
-          <Link to="/login">
-            <Button>Authorize</Button>
-          </Link>
-        </div>
-      </MyModal>
-      <div className={styles.wishlist__items}>
-        <h2 className={styles.wishlist__title}>Wishlist</h2>
-        <div className={styles.list}>
-          {wishItems && (
-            <TransitionGroup>
-              {wishItems.map((product) => (
-                <CSSTransition key={product.id} timeout={500} classNames="item">
-                  <WishListItem
-                    isVisible={isVisible}
-                    setIsVisible={setIsVisible}
-                    product={product}
-                  />
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-          )}
+      <div className={styles.container}>
+        <MyModal isVisible={isVisible} setIsVisible={setIsVisible}>
+          <div className={styles.wish__modal}>
+            <h2>
+              If you want to add this Item to cart you should be authorized
+            </h2>
+            <Link to="/login">
+              <Button>Authorize</Button>
+            </Link>
+          </div>
+        </MyModal>
+        <div className={styles.wishlist__items}>
+          <h2 className={styles.wishlist__title}>Wishlist</h2>
+          <div className={styles.list}>
+            {wishItems && (
+              <TransitionGroup>
+                {wishItems.map((product) => (
+                  <CSSTransition
+                    key={product.id}
+                    timeout={500}
+                    classNames="item"
+                  >
+                    <WishListItem
+                      isVisible={isVisible}
+                      setIsVisible={setIsVisible}
+                      product={product}
+                    />
+                  </CSSTransition>
+                ))}
+              </TransitionGroup>
+            )}
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 

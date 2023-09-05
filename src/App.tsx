@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import { router } from "./router";
-
+import styles from "./App.module.scss";
 function App() {
   return (
-    <>
+    <div className={styles.wrapper}>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           {router.map(({ path, component }) => (
@@ -12,7 +12,7 @@ function App() {
           ))}
         </Route>
       </Routes>
-    </>
+    </div>
   );
 }
 
