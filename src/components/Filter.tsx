@@ -1,10 +1,12 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import styles from "../styles/Filter.module.scss";
 import { useAppDispatch } from "../store/store";
 import { setSearchParams } from "../store/slices/filterSlice";
 import debounce from "lodash.debounce";
+import classNames from "classnames";
 const Filter:React.FC = () => {
   const dispatch = useAppDispatch();
+  const [isActive,setIsActive] = useState(false);
   const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
   const onClickClear = () => {
@@ -63,7 +65,7 @@ const Filter:React.FC = () => {
         value={value}
         onChange={handleChangeInput}
         ref={inputRef}
-        className={styles.filter__input}
+        className={isActive? classNames(styles.filter__input,styles.active) : styles.filter__input}
         type="text"
         placeholder="Search..."
       />

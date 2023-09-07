@@ -3,12 +3,14 @@ export type FetchParams = {
    limit?:number,
    page?:number,
    search?:string,
+   sorted?:string,
+   order?:string,
 }
 export const fetchProducts = createAsyncThunk(
    'products/fetchProducts',
    async (params:FetchParams) => {
-      const {limit = '',page = 1,search = ''} = params;
-      const response = await fetch(`https://6404ecfc40597b65de2d48a6.mockapi.io/Products?page=${page}&limit=${limit}${search}`);
+      const {limit = '',page = 1,search = '',order,sorted} = params;
+      const response = await fetch(`https://6404ecfc40597b65de2d48a6.mockapi.io/Products?page=${page}&limit=${limit}&sortBy=${sorted}&order=${order}${search}`);
       const data = await response.json();
        return data as FetchProduct[] ;
    }

@@ -16,3 +16,15 @@
     grid-template-columns: auto;
   }
 }
+.items__title{
+   text-align: center;
+   margin-top: 20px;
+   border-bottom:1px solid #000;
+}
+.items__notfound{
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
