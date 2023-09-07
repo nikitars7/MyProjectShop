@@ -9,6 +9,7 @@
    opacity: 1;
  }
  .item-exit-active {
+  opacity: 0;
    transform: translateX(-350px);
    transition: all 0.3s ease-in;
  }

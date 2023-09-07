@@ -1,6 +1,7 @@
 import img from "../img/image-home-07.jpg";
 import classNames from "classnames";
 import styles from "../styles/Banner.module.scss";
+import { Link } from "react-router-dom";
 const Banner:React.FC = () => {
   return (
     <section className={styles.banner}>
@@ -11,9 +12,9 @@ const Banner:React.FC = () => {
           <div className={styles.banner__overlay}>
             <div>
               <h1 className={styles.banner__title}>Waffle Hooded Coat</h1>
-              <a href="/" className={classNames(styles.btn, styles.btn_dark)}>
+              <Link to='/items' className={classNames(styles.btn, styles.btn_dark)}>
                 Shop Now
-              </a>
+              </Link>
             </div>
           </div>
           </div>

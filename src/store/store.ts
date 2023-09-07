@@ -3,6 +3,7 @@ import wishListReducer from "./slices/wishSlice";
 import cartSliceReducer from "./slices/cartSlice";
 import productSliceReducer from "./slices/productSlice";
 import authSliceReducer from './slices/userAuthSlice';
+import filterSliceReducer from './slices/filterSlice'
 import { useDispatch, useSelector,TypedUseSelectorHook } from "react-redux";
 export const store =  configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store =  configureStore({
     cartSlice:cartSliceReducer,
     productSlice:productSliceReducer,
     authSlice:authSliceReducer,
+    filterSlice:filterSliceReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

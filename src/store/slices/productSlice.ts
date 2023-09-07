@@ -1,8 +1,14 @@
 import { createSlice,createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-export const fetchProducts = createAsyncThunk<FetchProduct[]>(
+export type FetchParams = {
+   limit?:number,
+   page?:number,
+   search?:string,
+}
+export const fetchProducts = createAsyncThunk(
    'products/fetchProducts',
-   async () => {
-      const response = await fetch('https://6404ecfc40597b65de2d48a6.mockapi.io/Products');
+   async (params:FetchParams) => {
+      const {limit = '',page = 1,search = ''} = params;
+      const response = await fetch(`https://6404ecfc40597b65de2d48a6.mockapi.io/Products?page=${page}&limit=${limit}${search}`);
       const data = await response.json();
        return data as FetchProduct[] ;
    }

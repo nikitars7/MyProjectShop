@@ -64,7 +64,7 @@ const Header: React.FC = () => {
             <ul>
               {pathname !== "/wishlist" ? (
                 <li>
-                  <Link to="/wishlist" className={styles.navbar__icon}>
+                  <Link to="/wishlist" data-tooltip='WishList' className={styles.navbar__icon}>
                     <HeaderSvgStar />
                   </Link>
                 </li>
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
               )}
 
               <li>
-                <Link to="/cart" className={styles.navbar__icon}>
+                <Link to="/cart" data-tooltip='Basket' className={styles.navbar__icon}>
                   <HeaderSvgBag />
                   <span className={styles.number}>{cartItems.length}</span>
                 </Link>

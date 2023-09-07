@@ -20,7 +20,7 @@ const Product:React.FC<ProductProps> = ({ product }) => {
         <a href="/" className={styles.products__image_block}>
           <img src={imageUrl} alt={name} />
         </a>
-        <button onClick={handleClick} className={styles.add_to_wishlist}>
+        <button data-tooltip='Add to WishList' onClick={handleClick} className={styles.add_to_wishlist}>
           <ProductSvgWish />
         </button>
       </div>

@@ -5,12 +5,13 @@ import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
 import { fetchProducts } from "../store/slices/productSlice";
 import { RootState, useAppDispatch } from "../store/store";
+import { Link } from "react-router-dom";
 const Products:React.FC = () => {
   const products = useSelector((state:RootState) => state.productSlice.products)
   const dispatch = useAppDispatch();
   useEffect(()=>{
     try{
-      dispatch(fetchProducts())
+      dispatch(fetchProducts({limit:4}))
     }
     catch(err:any){
      console.log(err.message)
@@ -27,12 +28,12 @@ const Products:React.FC = () => {
             ))}
         </div>
         <div className={styles.products__bottom}>
-          <a
-            href="/"
+          <Link
+            to="/items"
             className={classNames(styles.btn, styles.btn_outline_primary)}
           >
             Shop Now
-          </a>
+          </Link>
         </div>
       </div>
     </section>

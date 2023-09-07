@@ -1,0 +1,34 @@
+.filter__container{
+   margin-top: 100px;
+}
+.filter__search{
+position: relative;
+}
+.filter__icon{
+position:absolute;
+width:24px;
+height:24px;
+opacity:.4;
+left:14px;
+top:8px;
+}
+.filter__input{
+   border: 1px solid rgba(0,0,0,0.1);
+   padding: 12px 20px;
+   width:350px;
+   border-radius:10px;
+   font-size: 16px;
+   padding-left: 44px;
+}
+.filter__clear{
+   width: 19px;
+   height: 19px;
+   opacity: 0.3;
+   position: absolute;
+   top: 12px;
+   left: 320px;
+   &:hover{
+      opacity: 0.8;
+      cursor: pointer;
+     }
+}

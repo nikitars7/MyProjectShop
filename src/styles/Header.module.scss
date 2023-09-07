@@ -54,6 +54,27 @@
    position: relative;
    display: block;
    padding: 0px 10px;
+   &::before{
+    content:attr(data-tooltip);
+    position:absolute;
+    top:2em;
+    right: -6px;
+    padding: 1px 5px;
+    font-size: 0.9em;
+    opacity: 0;
+    color:#fff;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 4px;
+    transition:opacity 0.1s ease-out;
+    z-index: 100;
+   }
+   @media (any-hover:hover) {
+    &:hover{
+      &::before{
+        opacity: 1;
+      }
+    }
+   }
  }
  
  .navbar__icon svg {
