@@ -1,0 +1,13 @@
+.select{
+  // appearance:none;
+   border:1px solid #000;
+   padding: 10px 35px 10px 15px;
+   background-color: #fff;
+   outline:none;
+   border-radius:5px;
+   cursor: pointer;
+}
+.select:focus{
+   outline: none;
+   box-shadow: 0px 0px 0px 1px #000, 0px 0px 10px gray;
+}

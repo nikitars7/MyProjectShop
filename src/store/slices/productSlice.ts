@@ -21,11 +21,18 @@ export const fetchProducts = createAsyncThunk(
    name:string,
    price:number,
  }
+ export enum Status {
+   LOADING = 'loading',
+   SUCCESS = 'success',
+   ERROR = 'error',
+ }
  interface ProductState {
    products:FetchProduct[],
+   isLoading:Status,
  }
 const initialState:ProductState = {
    products:[],
+   isLoading:Status.LOADING,
 }
 
 const productSlice = createSlice({
@@ -39,13 +46,16 @@ const productSlice = createSlice({
    extraReducers:(builder) =>{
       builder
       .addCase(fetchProducts.pending, (state) => {
-         
+         state.isLoading = Status.LOADING;
+         state.products = [];
        })
       .addCase(fetchProducts.fulfilled, (state, action) => {
          state.products = action.payload;
+         state.isLoading = Status.SUCCESS;
        })
        .addCase(fetchProducts.rejected, (state) => {
-         
+         state.isLoading = Status.ERROR;
+         state.products = [];
        })
    }
    

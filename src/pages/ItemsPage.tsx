@@ -7,10 +7,11 @@ import Product from "../components/Product";
 import Filter from "../components/Filter";
 import MySelect from "../UI/select/MySelect";
 import { ratingList } from "../utils/RateList";
+import Skeleton from "../components/Skeleton";
 const ItemsPage = () => {
   const [selectedSort, setSelectedSort] = useState<string>("");
-  const products = useSelector(
-    (state: RootState) => state.productSlice.products
+  const {products ,isLoading} = useSelector(
+    (state: RootState) => state.productSlice
   );
   const { searchParams, sortValue } = useSelector(
     (state: RootState) => state.filterSlice
@@ -27,22 +28,38 @@ const ItemsPage = () => {
         sorted,
       })
     );
-  }, [searchParams,order,sorted]);
+  }, [searchParams, order, sorted]);
   const sortPosts = (sort: string) => {
     setSelectedSort(sort);
     console.log(sort);
   };
   return (
     <div className={styles.container}>
-      <Filter />
-      <MySelect
-        value={selectedSort}
-        onChange={sortPosts}
-        defaultValue="Sort by"
-        options={ratingList}
-      />
+      <div className={styles.items__filter}>
+        <Filter />
+        <MySelect
+          value={selectedSort}
+          onChange={sortPosts}
+          defaultValue="Sort by"
+          options={ratingList}
+        />
+      </div>
       <h2 className={styles.items__title}>Catalogue</h2>
       <div className={products.length !== 0 ? styles.items__grid : ""}>
+        {isLoading === 'error' ? 
+        <div className={styles.items__error}>
+          <h2> Something went wrong 😕</h2>
+          <p>
+            {" "}
+            Unfortunately,during fetching occured an error. Try again later
+          </p>
+        </div>
+         : <>
+          {isLoading === 'loading' ? [...new Array(8)].map((_,index) => <Skeleton key={index}/>) :
+         products.map((product) => (
+          <Product product={product} key={product.id} />
+        ))
+        }
         {products.length !== 0 ? (
           products.map((product) => (
             <Product product={product} key={product.id} />
@@ -50,6 +67,7 @@ const ItemsPage = () => {
         ) : (
           <div className={styles.items__notfound}>Items were not found</div>
         )}
+         </> }
       </div>
     </div>
   );

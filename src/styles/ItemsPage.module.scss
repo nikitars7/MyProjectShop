@@ -28,3 +28,21 @@
   align-items: center;
   min-height: 70vh;
 }
+
+.items__filter{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  select{
+    align-self: end;
+  }
+}
+
+.items__error{
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+}
