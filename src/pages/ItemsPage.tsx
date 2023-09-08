@@ -60,7 +60,7 @@ const ItemsPage = () => {
           <Product product={product} key={product.id} />
         ))
         }
-        {products.length !== 0 ? (
+        {products.length !== 0 && isLoading !== 'loading' ? (
           products.map((product) => (
             <Product product={product} key={product.id} />
           ))

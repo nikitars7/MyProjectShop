@@ -36,6 +36,14 @@
   select{
     align-self: end;
   }
+  @media (max-width:767px) {
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+  }
+  select{
+    align-self: center;
+  }
 }
 
 .items__error{
