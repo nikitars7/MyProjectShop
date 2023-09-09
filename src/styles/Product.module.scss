@@ -92,7 +92,11 @@
     }
    }
  }
- 
+ button{
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+   resize: none;
+ }
  .add_to_wishlist svg {
    width: 24px;
    height: 24px;

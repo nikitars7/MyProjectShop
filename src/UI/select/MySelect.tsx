@@ -16,11 +16,13 @@ const MySelect:React.FC<MySelectProps> = ({options ,defaultValue,value,onChange}
    dispatch(setSortBy((e.target.value) as SortValueEnum))
    };
   return (
+  <div className={styles.select__wrapper}>
    <select value={value} onChange={handleChange} className={styles.select}>
       <option disabled value=''>{defaultValue}</option>
        {options.map(option => 
          <option key={option.sortValue}value={option.sortValue}>{option.name}</option>)}
- </select>
+   </select>
+ </div>
   )
 }
 
