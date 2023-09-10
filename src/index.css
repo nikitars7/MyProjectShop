@@ -75,21 +75,3 @@ html {
    height: auto;
  }
  
- h2 {
-   font-size: 36px;
-   line-height: 1.44;
-   color: #000000;
- }
- 
- @media (max-width: 1200px) {
-   h2 {
-     font-size: 30px;
-   }
- }
- 
- @media (max-width: 768px) {
-   h2 {
-     font-size: 26px;
-   }
- }
- 

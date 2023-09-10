@@ -60,13 +60,13 @@ const ItemsPage = () => {
           <Product product={product} key={product.id} />
         ))
         }
-        {products.length !== 0 && isLoading !== 'success' ? (
+        {/* {products.length !== 0 && isLoading !== 'success' ? (
           products.map((product) => (
             <Product product={product} key={product.id} />
           ))
         ) : (
           <div className={styles.items__notfound}>Items were not found</div>
-        )}
+        )} */}
          </> }
       </div>
     </div>

@@ -3,9 +3,8 @@
 .items__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
+  @include adaptiv-value("gap",30,20,1);
   margin-bottom: 50px;
-  margin-top: 50px;
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -20,6 +19,10 @@
    text-align: center;
    margin-top: 20px;
    border-bottom:1px solid #000;
+   @include adaptiv-value("font-size",36,26,1);
+   @include adaptiv-value("margin-bottom",50,25,1);
+   line-height: 1.44;
+   color: #000000;
 }
 .items__notfound{
   font-size: 70px;

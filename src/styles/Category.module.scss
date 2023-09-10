@@ -1,43 +1,22 @@
 @import '../App.module.scss';
 @import './Buttons.module.scss';
 .category {
-   margin-bottom: 100px;
- }
- 
- @media (max-width: 1200px) {
-   .category {
-     margin-bottom: 70px;
-   }
- }
- 
- @media (max-width: 768px) {
-   .category {
-     margin-bottom: 50px;
-   }
+  @include adaptiv-value("margin-bottom",100,50,1);
  }
  
  .category__title {
    text-align: center;
-   margin-bottom: 60px;
+   @include adaptiv-value("margin-bottom",60,20,1);
    border-bottom:1px solid #000;
- }
- 
- @media (max-width: 1200px) {
-   .category__title {
-     margin-bottom: 40px;
-   }
- }
- 
- @media (max-width: 768px) {
-   .category__title {
-     margin-bottom: 20px;
-   }
+   @include adaptiv-value("font-size",36,26,1);
+   line-height: 1.44;
+   color: #000000;
  }
  
  .category__grid {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   grid-gap: 30px;
+   @include adaptiv-value("gap",30,20,1);
  }
  
  @media (max-width: 1200px) {

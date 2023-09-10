@@ -93,16 +93,18 @@
    }
  }
  button{
-  -webkit-appearance: none;
-  -webkit-font-smoothing: antialiased;
-   resize: none;
+ border-color:#000;
+ color:#000;
  }
  .add_to_wishlist svg {
    width: 24px;
    height: 24px;
    fill:#000;
+   border-color:#000;
+   color:#000;
  }
  
  .add_to_wishlist:hover svg {
    color: #fff;
  }
+ 

@@ -1,13 +1,14 @@
 @import '../App.module.scss';
 
 .cart__title {
-   font-size: 36px;
    line-height: 1.44;
-   color: #000000;
    text-align: left;
-   margin: 0px 0px 60px 30px;
+   @include adaptiv-value("margin-left",30,15,1);
+   @include adaptiv-value("font-size",36,26,1);
+   @include adaptiv-value("margin-bottom",50,25,1);
    padding-top: 80px;
    border-bottom: 1px solid #000;
+   color: #000000;
  }
  
  .cart__grid {

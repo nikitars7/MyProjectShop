@@ -16,7 +16,7 @@ const Cart: React.FC = () => {
   }
   document.title = "Shopping Cart";
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className={styles.cart__title}>Shopping Cart</h1>
       <div className={styles.container}>
         <div className={styles.cart__grid}>

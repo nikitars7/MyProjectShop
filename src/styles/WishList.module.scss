@@ -3,22 +3,15 @@
 
 .wishlist__title {
    text-align: left;
-   margin: 0px 0px 60px 30px;
+   @include adaptiv-value("margin-left",30,15,1);
    padding-top: 80px;
    border-bottom: 1px solid #000;
+   @include adaptiv-value("font-size",36,26,1);
+   @include adaptiv-value("margin-bottom",50,25,1);
+   line-height: 1.44;
+   color: #000000;
  }
  
- @media (max-width: 1200px) {
-   .wishlist__title {
-     margin-bottom: 40px;
-   }
- }
- 
- @media (max-width: 768px) {
-   .wishlist__title {
-     margin-bottom: 20px;
-   }
- }
  .wishlist__items{
   display: flex;
   flex-direction: column;
