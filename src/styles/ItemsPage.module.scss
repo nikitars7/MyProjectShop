@@ -51,3 +51,24 @@
   justify-content: center;
   flex-direction:column;
 }
+
+.items__pagination{
+display: flex;
+justify-content: center;
+align-items: center;
+@include adaptiv-value("font-size",22,18,1);
+@include adaptiv-value("gap",20,10,1);
+@include adaptiv-value("margin-bottom",20,10,1);
+}
+
+.pagination__button{
+flex:0 1 30px;
+text-align: center;
+cursor: pointer;
+border:2px solid #000;
+border-radius:10px;
+}
+.pagination__current{
+  border:2px solid orange;
+  font-weight: 700;
+}

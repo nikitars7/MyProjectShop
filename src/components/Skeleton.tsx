@@ -15,10 +15,10 @@ const Skeleton:React.FC<SkeletonProps> = (props) => {
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="7" y="12" rx="0" ry="0" width="382.5" height="480" /> 
-    <rect x="6" y="509" rx="0" ry="0" width="193" height="25" /> 
-    <rect x="172" y="532" rx="0" ry="0" width="7" height="0" /> 
-    <rect x="7" y="554" rx="0" ry="0" width="193" height="25" />
+    <rect x="7" y="12" rx="15" ry="15" width="382.5" height="450" /> 
+    <rect x="6" y="479" rx="15" ry="15" width="120" height="25" /> 
+    <rect x="172" y="515" rx="0" ry="0" width="7" height="0" /> 
+    <rect x="7" y="526" rx="15" ry="15" width="120" height="25" />
   </ContentLoader>
   )
 }

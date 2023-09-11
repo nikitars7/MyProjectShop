@@ -8,14 +8,21 @@ import Filter from "../components/Filter";
 import MySelect from "../UI/select/MySelect";
 import { ratingList } from "../utils/RateList";
 import Skeleton from "../components/Skeleton";
+import { getPageCount } from "../utils/pages";
+import { usePagination } from "../hooks/usePagination";
+import classNames from "classnames";
+import { setPage } from "../store/slices/filterSlice";
 const ItemsPage = () => {
   const [selectedSort, setSelectedSort] = useState<string>("");
-  const {products ,isLoading} = useSelector(
+  const [totalPages, setTotalPages] = useState<number>(0);
+  let pageCountArray = usePagination(totalPages);
+  const { products, isLoading } = useSelector(
     (state: RootState) => state.productSlice
   );
-  const { searchParams, sortValue } = useSelector(
+  const { searchParams, sortValue, page } = useSelector(
     (state: RootState) => state.filterSlice
   );
+
   const dispatch = useAppDispatch();
   const order = sortValue.includes("-") ? "ask" : "desc";
   const sorted = sortValue.replace("-", "");
@@ -26,12 +33,20 @@ const ItemsPage = () => {
         search,
         order,
         sorted,
+        page,
+        limit: 8,
       })
     );
-  }, [searchParams, order, sorted]);
+  }, [searchParams, order, sorted, page]);
+  useEffect(() => {
+    setTotalPages(getPageCount(20, 8));
+  }, [products]);
   const sortPosts = (sort: string) => {
     setSelectedSort(sort);
     console.log(sort);
+  };
+  const onChangePage = (page: number) => {
+    dispatch(setPage(page));
   };
   return (
     <div className={styles.container}>
@@ -46,28 +61,48 @@ const ItemsPage = () => {
       </div>
       <h2 className={styles.items__title}>Catalogue</h2>
       <div className={products.length !== 0 ? styles.items__grid : ""}>
-        {isLoading === 'error' ? 
-        <div className={styles.items__error}>
-          <h2> Something went wrong 😕</h2>
-          <p>
-            {" "}
-            Unfortunately,during fetching occured an error. Try again later
-          </p>
-        </div>
-         : <>
-          {isLoading === 'loading' ? [...new Array(8)].map((_,index) => <Skeleton key={index}/>) :
-         products.map((product) => (
-          <Product product={product} key={product.id} />
-        ))
-        }
-        {/* {products.length !== 0 && isLoading !== 'success' ? (
+        {isLoading === "error" ? (
+          <div className={styles.items__error}>
+            <h2> Something went wrong 😕</h2>
+            <p>
+              {" "}
+              Unfortunately,during fetching occured an error. Try again later
+            </p>
+          </div>
+        ) : (
+          <>
+            {isLoading === "loading"
+              ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
+              : products.map((product) => (
+                  <Product product={product} key={product.id} />
+                ))}
+            {/* {products.length !== 0 && isLoading !== 'success' ? (
           products.map((product) => (
             <Product product={product} key={product.id} />
           ))
         ) : (
           <div className={styles.items__notfound}>Items were not found</div>
         )} */}
-         </> }
+          </>
+        )}
+      </div>
+      <div className={styles.items__pagination}>
+        {pageCountArray.map((p) => (
+          <span
+            onClick={() => onChangePage(p)}
+            className={
+              page === p
+                ? classNames(
+                    styles.pagination__button,
+                    styles.pagination__current
+                  )
+                : styles.pagination__button
+            }
+            key={p}
+          >
+            {p}
+          </span>
+        ))}
       </div>
     </div>
   );
