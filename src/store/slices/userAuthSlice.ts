@@ -1,13 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-interface AuthInitial {
+import { getUserFromLS } from "../../utils/localStorage";
+export interface AuthInitial {
    email:null|string,
    token:null|string,
    id:null|string,
 }
+const {userData} = getUserFromLS();
 const initialState:AuthInitial = {
-   email:null,
-   token:null,
-   id:null,
+   email:userData.email,
+   token:userData.token,
+   id:userData.id,
 }
 
 const userAuthSlice = createSlice({

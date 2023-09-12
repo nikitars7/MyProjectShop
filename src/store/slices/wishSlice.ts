@@ -16,7 +16,7 @@ const wishListSlice = createSlice({
       const { payload } = action;
       const copyItem = state.wishItems.find(item => item.id === payload.id);
       if(copyItem){
-        copyItem.count++;
+        copyItem!.count++;
       }else{
         state.wishItems.push({
           ...payload,

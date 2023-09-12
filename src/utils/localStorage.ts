@@ -1,4 +1,5 @@
 import { CartProduct } from "../store/slices/cartSlice";
+import { AuthInitial } from "../store/slices/userAuthSlice";
 import { calcTotaPrice } from "./calcTotalPrice";
 export const getProductsFromLS = () => {
 let data = localStorage.getItem('Cart');
@@ -17,3 +18,14 @@ export const getWishProducts = () => {
      
    }
    }
+export const getUserFromLS = () => {
+   let user = localStorage.getItem('user');
+   let userData = user ? JSON.parse(user) : {
+      email:null,
+      id:null,
+      token:null,
+   };
+   return {
+      userData: userData as AuthInitial,
+   }
+}

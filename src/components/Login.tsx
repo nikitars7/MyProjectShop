@@ -10,9 +10,16 @@ const Login = () => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
         dispatch(
           login({
+            email: user.email,
+            id: user.uid,
+            token: user.refreshToken,
+          })
+        );
+        window.localStorage.setItem(
+          "user",
+          JSON.stringify({
             email: user.email,
             id: user.uid,
             token: user.refreshToken,

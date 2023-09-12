@@ -1,5 +1,5 @@
 import {useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import Product from "./Product";
 import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
@@ -7,7 +7,7 @@ import { fetchProducts } from "../store/slices/productSlice";
 import { RootState, useAppDispatch } from "../store/store";
 import { Link } from "react-router-dom";
 const Products:React.FC = () => {
-  const products = useSelector((state:RootState) => state.productSlice.products)
+  const products = useTypedSelector((state:RootState) => state.productSlice.products)
   const dispatch = useAppDispatch();
   useEffect(()=>{
     try{

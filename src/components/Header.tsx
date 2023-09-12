@@ -3,16 +3,16 @@ import img from "../img/logo-black.png";
 import HeaderSvgStar from "../iconsvg/HeaderSvgStar";
 import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
 import styles from "../styles/Header.module.scss";
-import { useSelector } from "react-redux";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useAppDispatch } from "../store/store";
 import { RootState } from "../store/store";
 import { useEffect, useRef } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { logOut } from "../store/slices/userAuthSlice";
 import Button from "../UI/button/Button";
 const Header: React.FC = () => {
-  const { cartItems } = useSelector((store: RootState) => store.cartSlice);
-  const { wishItems } = useSelector((store: RootState) => store.wishSlice);
+  const { cartItems } = useTypedSelector((store: RootState) => store.cartSlice);
+  const { wishItems } = useTypedSelector((store: RootState) => store.wishSlice);
   const { isAuth } = useAuth();
   const isMounted = useRef(false);
   const dispatch = useAppDispatch();
@@ -29,12 +29,13 @@ const Header: React.FC = () => {
   }, [cartItems, wishItems]);
   const handleLogOut = () => {
     dispatch(logOut());
+    localStorage.removeItem('user')
   };
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.header__wrapper}>
-          {isAuth ? (
+          {isAuth  ? (
             <div className={styles.header__auth}>
               <Button handleClick={handleLogOut}>Log out</Button>
             </div>

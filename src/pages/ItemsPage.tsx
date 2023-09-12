@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/ItemsPage.module.scss";
 import { RootState, useAppDispatch } from "../store/store";
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { fetchProducts } from "../store/slices/productSlice";
 import Product from "../components/Product";
 import Filter from "../components/Filter";
@@ -16,10 +16,10 @@ const ItemsPage = () => {
   const [selectedSort, setSelectedSort] = useState<string>("");
   const [totalPages, setTotalPages] = useState<number>(0);
   let pageCountArray = usePagination(totalPages);
-  const { products, isLoading } = useSelector(
+  const { products, isLoading } = useTypedSelector(
     (state: RootState) => state.productSlice
   );
-  const { searchParams, sortValue, page } = useSelector(
+  const { searchParams, sortValue, page } = useTypedSelector(
     (state: RootState) => state.filterSlice
   );
 

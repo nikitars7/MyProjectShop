@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import WishListItem from "../components/WishListItem";
 import styles from "../styles/WishList.module.scss";
 import "../styles/ItemsTransition.scss";
@@ -10,7 +10,7 @@ import MyModal from "../UI/popup/MyModal";
 import Button from "../UI/button/Button";
 const Wishlist: React.FC = () => {
   document.title = "Wishlish";
-  const { wishItems } = useSelector((store: RootState) => store.wishSlice);
+  const { wishItems } = useTypedSelector((store: RootState) => store.wishSlice);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   return (
       <div className={styles.container}>

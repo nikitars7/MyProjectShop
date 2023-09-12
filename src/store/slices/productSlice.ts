@@ -15,7 +15,7 @@ export const fetchProducts = createAsyncThunk(
        return data as FetchProduct[] ;
    }
  )
- type FetchProduct = {
+ export type FetchProduct = {
    id:number,
    imageUrl:string,
    name:string,

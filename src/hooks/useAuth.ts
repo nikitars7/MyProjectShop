@@ -1,6 +1,6 @@
-import { useAppSelector } from "../store/store";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 export const useAuth = () => {
-const {email,token,id} = useAppSelector(state => state.authSlice);
+const {email,token,id} = useTypedSelector(state => state.authSlice);
 return {
    isAuth: !!email,
    email,

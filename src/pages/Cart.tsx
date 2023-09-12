@@ -3,11 +3,11 @@ import CartEmpty from "../components/CartEmpty";
 import SummaryCart from "../components/SummaryCart";
 import styles from "../styles/Cart.module.scss";
 import '../styles/ItemsTransition.scss'
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { RootState } from "../store/store";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 const Cart: React.FC = () => {
-  const { cartItems, totalPrice } = useSelector(
+  const { cartItems, totalPrice } = useTypedSelector(
     (store: RootState) => store.cartSlice
   );
   const totalItems = cartItems.reduce((acc, item) => acc + item.price, 0);
