@@ -3,8 +3,9 @@ import { addToWishList } from "../store/slices/wishSlice";
 import ProductSvgWish from "../iconsvg/ProductSvgWish";
 import styles from "../styles/Product.module.scss";
 import { CartProduct } from "../store/slices/cartSlice";
+import { FetchProduct } from "../store/slices/productSlice";
 type ProductProps = {
-  product:CartProduct,
+  product:FetchProduct,
 }
 const Product:React.FC<ProductProps> = ({ product }) => {
   const { name, price, imageUrl } = product;
@@ -12,7 +13,7 @@ const Product:React.FC<ProductProps> = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(addToWishList(product));
+    dispatch(addToWishList(product as CartProduct));
   };
   return (
     <div className={styles.product}>
