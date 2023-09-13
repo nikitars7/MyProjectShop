@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../styles/ItemsPage.module.scss";
 import { RootState, useAppDispatch } from "../store/store";
 import { useTypedSelector } from "../hooks/useTypedSelector";
@@ -26,6 +26,23 @@ const ItemsPage = () => {
   const dispatch = useAppDispatch();
   const order = sortValue.includes("-") ? "ask" : "desc";
   const sorted = sortValue.replace("-", "");
+  const lastElem = useRef<HTMLDivElement>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
+  useEffect(() => {
+    if(isLoading === 'loading'){
+      return;
+    }
+    if (observer.current) {
+      observer.current.disconnect();
+    }
+    const elemIsVisible = (entries) => {
+      if (entries[0].isIntersecting && page < totalPages) {
+        dispatch(setPage(page + 1));
+      }
+    };
+    observer.current = new IntersectionObserver(elemIsVisible);
+    observer.current.observe(lastElem.current);
+  }, [isLoading]);
   useEffect(() => {
     const search = searchParams ? `&search=${searchParams}` : "";
     dispatch(
@@ -43,7 +60,6 @@ const ItemsPage = () => {
   }, [products]);
   const sortPosts = (sort: string) => {
     setSelectedSort(sort);
-    console.log(sort);
   };
   const onChangePage = (page: number) => {
     dispatch(setPage(page));
@@ -71,11 +87,11 @@ const ItemsPage = () => {
           </div>
         ) : (
           <>
-            {isLoading === "loading"
-              ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
-              : products.map((product) => (
-                  <Product product={product} key={product.id} />
-                ))}
+            {isLoading === "loading" &&
+              [...new Array(8)].map((_, index) => <Skeleton key={index} />)}
+            {products.map((product) => (
+              <Product product={product} key={product.id} />
+            ))}
             {/* {products.length !== 0 && isLoading !== 'success' ? (
           products.map((product) => (
             <Product product={product} key={product.id} />
@@ -86,6 +102,10 @@ const ItemsPage = () => {
           </>
         )}
       </div>
+      <div
+        ref={lastElem}
+
+      ></div>
       <div className={styles.items__pagination}>
         {pageCountArray.map((p) => (
           <span

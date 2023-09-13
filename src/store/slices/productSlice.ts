@@ -47,10 +47,13 @@ const productSlice = createSlice({
       builder
       .addCase(fetchProducts.pending, (state) => {
          state.isLoading = Status.LOADING;
-         state.products = [];
        })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-         state.products = action.payload;
+         // if(state.products.length > 20){
+         //    state.products = [];
+         //    state.products = action.payload;
+         // }
+         state.products = [...state.products, ...action.payload];
          state.isLoading = Status.SUCCESS;
        })
        .addCase(fetchProducts.rejected, (state) => {

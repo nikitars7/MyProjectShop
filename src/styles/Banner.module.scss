@@ -2,7 +2,7 @@
 @import './Buttons.module.scss';
 
 .banner {
-   padding-top: 70px;
+  @include adaptiv-value("padding-top",100,80,1);
    @include adaptiv-value("margin-bottom",100,50,1);
  }
  
@@ -15,6 +15,9 @@
    word-wrap: break-word;
    background-color: #fff;
    background-clip: border-box;
+   img{
+    border-radius:15px;
+   }
  }
  
  .banner__overlay {
