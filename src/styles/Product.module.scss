@@ -11,7 +11,8 @@
  
  .product__body {
    padding-top: 16px;
-
+  display: flex;
+  justify-content: space-between;
  }
  .product__body h3 {
    font-size: 18px;

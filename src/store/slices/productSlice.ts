@@ -15,6 +15,15 @@ export const fetchProducts = createAsyncThunk(
        return data as FetchProduct[] ;
    }
  )
+ export const fetchMainProducts = createAsyncThunk(
+   'products/fetchMainProducts',
+   async (params:FetchParams) => {
+      const {limit = '',page = 1} = params;
+      const response = await fetch(`https://6404ecfc40597b65de2d48a6.mockapi.io/Products?page=${page}&limit=${limit}`);
+      const data = await response.json();
+       return data as FetchProduct[] ;
+   }
+ )
  export type FetchProduct = {
    id:number,
    imageUrl:string,
@@ -28,10 +37,12 @@ export const fetchProducts = createAsyncThunk(
  }
  interface ProductState {
    products:FetchProduct[],
+   itemsMain:FetchProduct[],
    isLoading:Status,
  }
 const initialState:ProductState = {
    products:[],
+   itemsMain:[],
    isLoading:Status.LOADING,
 }
 
@@ -49,16 +60,24 @@ const productSlice = createSlice({
          state.isLoading = Status.LOADING;
        })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-         // if(state.products.length > 20){
-         //    state.products = [];
-         //    state.products = action.payload;
-         // }
          state.products = [...state.products, ...action.payload];
          state.isLoading = Status.SUCCESS;
        })
        .addCase(fetchProducts.rejected, (state) => {
          state.isLoading = Status.ERROR;
          state.products = [];
+       })
+       .addCase(fetchMainProducts.pending, (state) => {
+         state.isLoading = Status.LOADING;
+         state.itemsMain = [];
+       })
+      .addCase(fetchMainProducts.fulfilled, (state, action) => {
+         state.itemsMain = action.payload;
+         state.isLoading = Status.SUCCESS;
+       })
+       .addCase(fetchMainProducts.rejected, (state) => {
+         state.isLoading = Status.ERROR;
+         state.itemsMain = [];
        })
    }
    

@@ -19,6 +19,20 @@ button{
   border: 1px solid transparent;
 }
 
+.product__content{
+  max-width:300px;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0px auto;
+  @include adaptiv-value('margin-bottom',50,20,1);
+  padding-top: 100px;
+  @include adaptiv-value('gap',50,30,1)
+}
+.product__button{
+align-self: start;
+}
 
 
  

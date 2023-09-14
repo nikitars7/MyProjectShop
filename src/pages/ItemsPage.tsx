@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "../styles/ItemsPage.module.scss";
 import { RootState, useAppDispatch } from "../store/store";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import { fetchProducts } from "../store/slices/productSlice";
+import { fetchProducts, setProducts } from "../store/slices/productSlice";
 import Product from "../components/Product";
 import Filter from "../components/Filter";
 import MySelect from "../UI/select/MySelect";
