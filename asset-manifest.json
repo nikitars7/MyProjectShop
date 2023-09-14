@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/MyProjectShop/static/css/main.deac08f8.css",
-    "main.js": "/MyProjectShop/static/js/main.d950d7cd.js",
-    "ItemsPage.css": "/MyProjectShop/static/css/ItemsPage.99079827.chunk.css",
-    "ItemsPage.js": "/MyProjectShop/static/js/ItemsPage.a3aed1d6.chunk.js",
+    "main.css": "/MyProjectShop/static/css/main.f0ade66a.css",
+    "main.js": "/MyProjectShop/static/js/main.f6e8c0ad.js",
+    "ItemsPage.css": "/MyProjectShop/static/css/ItemsPage.92084e5c.chunk.css",
+    "ItemsPage.js": "/MyProjectShop/static/js/ItemsPage.fb8fe1ca.chunk.js",
     "static/media/image-home-07.jpg": "/MyProjectShop/static/media/image-home-07.50554b49271f0ef2ae15.jpg",
     "static/media/empty-cart.png": "/MyProjectShop/static/media/empty-cart.db905d1f4b063162f25b.png",
     "index.html": "/MyProjectShop/index.html",
-    "main.deac08f8.css.map": "/MyProjectShop/static/css/main.deac08f8.css.map",
-    "main.d950d7cd.js.map": "/MyProjectShop/static/js/main.d950d7cd.js.map",
-    "ItemsPage.99079827.chunk.css.map": "/MyProjectShop/static/css/ItemsPage.99079827.chunk.css.map",
-    "ItemsPage.a3aed1d6.chunk.js.map": "/MyProjectShop/static/js/ItemsPage.a3aed1d6.chunk.js.map"
+    "main.f0ade66a.css.map": "/MyProjectShop/static/css/main.f0ade66a.css.map",
+    "main.f6e8c0ad.js.map": "/MyProjectShop/static/js/main.f6e8c0ad.js.map",
+    "ItemsPage.92084e5c.chunk.css.map": "/MyProjectShop/static/css/ItemsPage.92084e5c.chunk.css.map",
+    "ItemsPage.fb8fe1ca.chunk.js.map": "/MyProjectShop/static/js/ItemsPage.fb8fe1ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.deac08f8.css",
-    "static/js/main.d950d7cd.js"
+    "static/css/main.f0ade66a.css",
+    "static/js/main.f6e8c0ad.js"
   ]
 }
