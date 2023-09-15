@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "../styles/ItemsPage.module.scss";
 import { RootState, useAppDispatch } from "../store/store";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import { fetchProducts, setProducts } from "../store/slices/productSlice";
+import { fetchProducts} from "../store/slices/productSlice";
 import Product from "../components/Product";
 import Filter from "../components/Filter";
 import MySelect from "../UI/select/MySelect";
@@ -12,6 +12,7 @@ import { getPageCount } from "../utils/pages";
 import { usePagination } from "../hooks/usePagination";
 import classNames from "classnames";
 import { setPage } from "../store/slices/filterSlice";
+import { useObserver } from "../hooks/useObserver";
 const ItemsPage = () => {
   const [selectedSort, setSelectedSort] = useState<string>("");
   const [totalPages, setTotalPages] = useState<number>(0);
@@ -22,27 +23,13 @@ const ItemsPage = () => {
   const { searchParams, sortValue, page } = useTypedSelector(
     (state: RootState) => state.filterSlice
   );
-
   const dispatch = useAppDispatch();
   const order = sortValue.includes("-") ? "ask" : "desc";
   const sorted = sortValue.replace("-", "");
   const lastElem = useRef<HTMLDivElement>(null);
-  const observer = useRef<IntersectionObserver | null>(null);
-  useEffect(() => {
-    if(isLoading === 'loading'){
-      return;
-    }
-    if (observer.current) {
-      observer.current.disconnect();
-    }
-    const elemIsVisible = (entries) => {
-      if (entries[0].isIntersecting && page < totalPages) {
-        dispatch(setPage(page + 1));
-      }
-    };
-    observer.current = new IntersectionObserver(elemIsVisible);
-    observer.current.observe(lastElem.current);
-  }, [isLoading]);
+  // useObserver(lastElem, isLoading, page < totalPages, () => {
+  //   dispatch(setPage(page + 1));
+  // });
   useEffect(() => {
     const search = searchParams ? `&search=${searchParams}` : "";
     dispatch(
@@ -102,10 +89,7 @@ const ItemsPage = () => {
           </>
         )}
       </div>
-      <div
-        ref={lastElem}
-
-      ></div>
+      <div ref={lastElem}></div>
       <div className={styles.items__pagination}>
         {pageCountArray.map((p) => (
           <span
