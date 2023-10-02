@@ -20,7 +20,7 @@ const WishListItem: React.FC<WishListProps> = ({
   setIsVisible,
 }) => {
   const { isAuth } = useAuth();
-  const { name, price, imageUrl, id, count } = product;
+  const { name, price, imageUrl, id, count, size } = product;
   const dispatch = useAppDispatch();
   const handleRemove = () => {
     dispatch(removeFromWishList(id));
@@ -48,8 +48,9 @@ const WishListItem: React.FC<WishListProps> = ({
         <div className={styles.item__body}>
           <img src={imageUrl} alt={name} className={styles.item__image} />
           <div className={classNames(styles.media_body, styles.mw_210)}>
-            <p className={styles.item__title}>{name}</p>
-            <p className={styles.item__price}>{`$${price}`}</p>
+            <h3 className={styles.item__title}>Name: {name}</h3>
+            <h3 className={styles.item__price}>Price: {price}</h3>
+            <h3 className={styles.item__size}>Size: {size}</h3>
           </div>
         </div>
       </div>

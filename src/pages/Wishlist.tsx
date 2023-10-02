@@ -12,6 +12,13 @@ const Wishlist: React.FC = () => {
   document.title = "Wishlish";
   const { wishItems } = useTypedSelector((store: RootState) => store.wishSlice);
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  if(wishItems.length === 0){
+  return (
+    <div className={styles.wish__empty}>
+       <h2 className={styles.wish__empty_title}>WishList is empty , get clothes <Link to='/items'>now</Link></h2>
+    </div>
+  )
+  }
   return (
       <div className={styles.container}>
         <MyModal isVisible={isVisible} setIsVisible={setIsVisible}>

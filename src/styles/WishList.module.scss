@@ -27,3 +27,18 @@
   flex-direction: column;
   gap:30px;
  }
+ .wish__empty{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  &_title{
+ font-size: 36px;
+ font-weight: 500;
+ a{
+  @media (any-hover:hover){&:hover{
+    text-decoration: underline;
+  }}
+ }
+  }
+ }

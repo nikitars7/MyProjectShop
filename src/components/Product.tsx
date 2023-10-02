@@ -19,7 +19,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     <div className={styles.product}>
       <MyModal isVisible={isVisible} setIsVisible={setIsVisible}>
         <div className={styles.product__modal}>
-          <h2>If you want to add this Item to cart you should pick the size</h2>
+          <h2>If you want to add this Item to wishlist you should pick the size</h2>
           <Link to={`/product/${id}`}><Button>Get now</Button></Link>
         </div>
       </MyModal>

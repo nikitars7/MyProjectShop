@@ -1,4 +1,5 @@
 @import './Buttons.module.scss';
+@import '../App.module.scss';
 .item {
    display: flex;
    justify-content: space-between;
@@ -55,10 +56,16 @@
  }
  
  .item__price {
-   font-size: 14px;
+   font-size: 18px;
    margin-top: 10px;
+   font-weight: 500;
  }
- 
+ .item__size{
+  font-size: 18px;
+  font-weight: 500;
+ }
+
+
  .item__buttons {
    text-align: right;
    @media (max-width:540px) {
@@ -74,7 +81,13 @@
 display: flex;
 align-items: center;
 gap:10px;
-
+@media (max-width:640px){
+  display: flex;
+  flex-direction: column;
+ }
+ @media (max-width:540px) {
+  flex-direction: row;
+  }
  }
 .item__button{
   align-items: center;
