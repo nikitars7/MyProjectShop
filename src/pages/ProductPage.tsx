@@ -9,8 +9,10 @@ import styles from "../styles/ProductPage.module.scss";
 import MyLoader from "../UI/loader/MyLoader";
 import Button from "../UI/button/Button";
 import { CartProduct } from "../store/slices/cartSlice";
+import classNames from "classnames";
 const ProductPage: React.FC = () => {
   const [item, setItem] = useState<FetchProduct>();
+  const [activeSize,setActiveSize] = useState<number>(0);
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -32,7 +34,14 @@ const ProductPage: React.FC = () => {
     navigate(-1);
   };
   const handleClick = () => {
-    dispatch(addToWishList(item as CartProduct));
+    dispatch(addToWishList({
+      id:item?.id,
+      imageUrl:item?.imageUrl,
+      name:item?.name,
+      price:item?.price,
+      count:0,
+      size:item?.sizes[activeSize]
+    } as CartProduct));
   };
   if (!item) {
     return (
@@ -50,6 +59,16 @@ const ProductPage: React.FC = () => {
           <Button handleClick={handleClickBack}>Back</Button>
           <div className={styles.item__info}>
             <h2 className={styles.item__name}>product: {item.name}</h2>
+            <div className={styles.item__size}>
+              <h3 className={styles.item__title}>Sizes:</h3>
+              <ul className={styles.item__list}>
+                {item.sizes.map((size,index) => (
+                  <li onClick={() => setActiveSize(index)} key={size} className={activeSize === index ? classNames(styles.item__link , styles.active)  : styles.item__link}>
+                    {size}
+                  </li>
+                ))}
+              </ul>
+            </div>
             <p className={styles.item__price}>price: {item.price} $</p>
           </div>
         </div>

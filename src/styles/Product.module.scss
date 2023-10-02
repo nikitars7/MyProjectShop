@@ -7,6 +7,13 @@
    word-wrap: break-word;
    background-color: #fff;
    background-clip: border-box;
+   &__modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+   }
  }
  
  .product__body {
@@ -108,4 +115,3 @@
  .add_to_wishlist:hover svg {
    color: #fff;
  }
- 

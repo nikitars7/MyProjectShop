@@ -29,6 +29,7 @@ export const fetchProducts = createAsyncThunk(
    imageUrl:string,
    name:string,
    price:number,
+   sizes:string[],
  }
  export enum Status {
    LOADING = 'loading',

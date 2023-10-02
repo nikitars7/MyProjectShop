@@ -7,6 +7,7 @@ export type CartProduct = {
   name:string,
   price:number,
   count:number,
+  size:string,
   }
   interface CartStateInit {
     cartItems:CartProduct[],
