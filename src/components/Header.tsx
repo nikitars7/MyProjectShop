@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           )}
           <div className={styles.header__logo}>
             <Link to="/">
-              <img src={img} alt="Logotype" />
+              <img src={img} alt="Logotype" data-testid='header-logo'  />
             </Link>
           </div>
           <div className={styles.navbar}>
