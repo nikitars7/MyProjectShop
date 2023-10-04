@@ -1,3 +1,4 @@
+import exp from "constants";
 import { calcTotaPrice } from "../calcTotalPrice";
 import { expect, test} from '@jest/globals';
 const cartItems = [
@@ -32,5 +33,13 @@ describe('CalcTotalPriceTest',() => {
   })
   test("not calc", () => {
     expect(calcTotaPrice(cartItems)).not.toBe(-600);
+  })
+  test('count of times', () => {
+    const spyOnReduce = jest.spyOn(Array.prototype,'reduce');
+    calcTotaPrice(cartItems);
+    expect(spyOnReduce).toBeCalledTimes(1);
+  })
+  afterEach(() => {
+    jest.clearAllMocks();
   })
 })
