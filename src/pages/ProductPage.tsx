@@ -16,6 +16,7 @@ const ProductPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  console.log(item)
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -54,7 +55,7 @@ const ProductPage: React.FC = () => {
   }
   return (
     <div className={styles.container}>
-      <div className={styles.item__content}>
+      <div data-testid='product-item' className={styles.item__content}>
         <div className={styles.item__desc}>
           <Button handleClick={handleClickBack}>Back</Button>
           <div className={styles.item__info}>
