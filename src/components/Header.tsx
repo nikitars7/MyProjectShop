@@ -10,9 +10,10 @@ import { useEffect, useRef } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { logOut } from "../store/slices/userAuthSlice";
 import Button from "../UI/button/Button";
+import { wishItemsSelector } from "../store/selectors/wishItemsSelector";
 const Header: React.FC = () => {
   const { cartItems } = useTypedSelector((store: RootState) => store.cartSlice);
-  const { wishItems } = useTypedSelector((store: RootState) => store.wishSlice);
+  const {wishItems}  = useTypedSelector(wishItemsSelector);
   const { isAuth } = useAuth();
   const isMounted = useRef(false);
   const dispatch = useAppDispatch();

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`wishSlice should add a new item to the state 1`] = `
+Object {
+  "wishItems": Array [
+    Object {
+      "count": 1,
+      "id": 1,
+      "imageUrl": "image",
+      "name": "added",
+      "price": 100,
+      "size": "L",
+    },
+  ],
+}
+`;
+
+exports[`wishSlice should add a new item to the state 2`] = `
+Object {
+  "wishItems": Array [
+    Object {
+      "count": 1,
+      "id": 1,
+      "imageUrl": "image",
+      "name": "added",
+      "price": 100,
+      "size": "L",
+    },
+  ],
+}
+`;
+
+exports[`wishSlice should remove the item to the state 1`] = `
+Object {
+  "wishItems": Array [
+    Object {
+      "count": 1,
+      "id": 1,
+      "imageUrl": "image",
+      "name": "added",
+      "price": 100,
+      "size": "L",
+    },
+  ],
+}
+`;

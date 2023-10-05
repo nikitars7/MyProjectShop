@@ -5,12 +5,12 @@ import "../styles/ItemsTransition.scss";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { RootState } from "../store/store";
 import MyModal from "../UI/popup/MyModal";
 import Button from "../UI/button/Button";
+import { wishItemsSelector } from "../store/selectors/wishItemsSelector";
 const Wishlist: React.FC = () => {
   document.title = "Wishlish";
-  const { wishItems } = useTypedSelector((store: RootState) => store.wishSlice);
+  const  {wishItems}  = useTypedSelector(wishItemsSelector);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   if(wishItems.length === 0){
   return (
