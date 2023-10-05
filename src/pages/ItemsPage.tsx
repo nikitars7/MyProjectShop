@@ -62,7 +62,7 @@ const ItemsPage = () => {
           options={ratingList}
         />
       </div>
-      <h2 className={styles.items__title}>Catalogue</h2>
+      <h2 data-testid='catalogue-page' className={styles.items__title}>Catalogue</h2>
       <div className={products.length !== 0 ? styles.items__grid : ""}>
         {isLoading === "error" ? (
           <div className={styles.items__error}>

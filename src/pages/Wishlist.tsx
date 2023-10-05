@@ -15,7 +15,7 @@ const Wishlist: React.FC = () => {
   if(wishItems.length === 0){
   return (
     <div className={styles.wish__empty}>
-       <h2 className={styles.wish__empty_title}>WishList is empty , get clothes <Link to='/items'>now</Link></h2>
+       <h2 data-testid='empty-wish' className={styles.wish__empty_title}>WishList is empty , get clothes <Link to='/items'>now</Link></h2>
     </div>
   )
   }

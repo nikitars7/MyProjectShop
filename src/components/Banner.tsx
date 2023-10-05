@@ -12,7 +12,7 @@ const Banner:React.FC = () => {
           <div className={styles.banner__overlay}>
             <div>
               <h1 className={styles.banner__title}>Waffle Hooded Coat</h1>
-              <Link to='/items' className={classNames(styles.btn, styles.btn_dark)}>
+              <Link data-testid='button-catalogue' to='/items' className={classNames(styles.btn, styles.btn_dark)}>
                 Shop Now
               </Link>
             </div>
