@@ -20,8 +20,8 @@ describe("cartSlice", () => {
         size: "L",
       },
     };
-    const result = cartSliceReducer({ cartItems: [],totalPrice: 0 }, action);
-    const { cartItems,totalPrice } = result;
+    const result = cartSliceReducer({ cartItems: [], totalPrice: 0 }, action);
+    const { cartItems, totalPrice } = result;
     expect(cartItems[0].name).toBe("added");
     expect(totalPrice).toBe(100);
     expect(result).toMatchSnapshot();
@@ -37,10 +37,13 @@ describe("cartSlice", () => {
     };
     const action = {
       type: removeFromCart.type,
-      payload:1,
+      payload: 1,
     };
-    const result = cartSliceReducer({ cartItems: [cartItem],totalPrice:100 }, action);
-    expect(result).toEqual({ cartItems: [],totalPrice:0 });
+    const result = cartSliceReducer(
+      { cartItems: [cartItem], totalPrice: 100 },
+      action
+    );
+    expect(result).toEqual({ cartItems: [], totalPrice: 0 });
     expect(result).toMatchSnapshot();
   });
 });

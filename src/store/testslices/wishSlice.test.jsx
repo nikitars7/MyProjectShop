@@ -39,7 +39,7 @@ describe("wishSlice", () => {
     };
     const action = {
       type: removeFromWishList.type,
-      payload:1,
+      payload: 1,
     };
     const result = wishListReducer({ wishItems: [wishItem] }, action);
     expect(result).toEqual({ wishItems: [] });
@@ -56,7 +56,7 @@ describe("wishSlice", () => {
     };
     const action = {
       type: plusItem.type,
-      payload:{
+      payload: {
         id: 1,
         imageUrl: "image",
         name: "added",
@@ -81,7 +81,7 @@ describe("wishSlice", () => {
     };
     const action = {
       type: minusItem.type,
-      payload:{
+      payload: {
         id: 1,
         imageUrl: "image",
         name: "added",

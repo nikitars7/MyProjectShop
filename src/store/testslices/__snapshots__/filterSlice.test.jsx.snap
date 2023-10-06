@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filterSlice should return default state 1`] = `
+Object {
+  "page": 1,
+  "searchParams": "",
+  "sortValue": "-name",
+}
+`;
+
+exports[`filterSlice should update page value 1`] = `
+Object {
+  "page": 2,
+  "searchParams": "",
+  "sortValue": "-name",
+}
+`;
+
+exports[`filterSlice should update search value 1`] = `
+Object {
+  "page": 1,
+  "searchParams": "search...",
+  "sortValue": "-name",
+}
+`;
+
+exports[`filterSlice should update sort value 1`] = `
+Object {
+  "page": 1,
+  "searchParams": "",
+  "sortValue": "price",
+}
+`;
