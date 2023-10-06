@@ -43,4 +43,54 @@ describe("wishSlice", () => {
     const result = wishListReducer({ wishItems: [wishItem] }, action);
     expect(result).toEqual({ wishItems: [] });
   });
+  test("should add count to the item", () => {
+    const wishItem = {
+      id: 1,
+      imageUrl: "image",
+      name: "added",
+      price: 100,
+      count: 1,
+      size: "L",
+    };
+    const action = {
+      type: plusItem.type,
+      payload:{
+        id: 1,
+        imageUrl: "image",
+        name: "added",
+        price: 100,
+        count: 1,
+        size: "L",
+      },
+    };
+    const result = wishListReducer({ wishItems: [wishItem] }, action);
+    const { wishItems } = result;
+    expect(wishItems[0].count).toBe(2);
+    expect(result).toMatchSnapshot();
+  });
+  test("should minus count of the item", () => {
+    const wishItem = {
+      id: 1,
+      imageUrl: "image",
+      name: "added",
+      price: 100,
+      count: 2,
+      size: "L",
+    };
+    const action = {
+      type: minusItem.type,
+      payload:{
+        id: 1,
+        imageUrl: "image",
+        name: "added",
+        price: 100,
+        count: 1,
+        size: "L",
+      },
+    };
+    const result = wishListReducer({ wishItems: [wishItem] }, action);
+    const { wishItems } = result;
+    expect(wishItems[0].count).toBe(1);
+    expect(result).toMatchSnapshot();
+  });
 });

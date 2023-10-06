@@ -15,11 +15,11 @@ Object {
 }
 `;
 
-exports[`wishSlice should add a new item to the state 2`] = `
+exports[`wishSlice should add count to the item 1`] = `
 Object {
   "wishItems": Array [
     Object {
-      "count": 1,
+      "count": 2,
       "id": 1,
       "imageUrl": "image",
       "name": "added",
@@ -30,7 +30,7 @@ Object {
 }
 `;
 
-exports[`wishSlice should remove the item to the state 1`] = `
+exports[`wishSlice should minus count of the item 1`] = `
 Object {
   "wishItems": Array [
     Object {
