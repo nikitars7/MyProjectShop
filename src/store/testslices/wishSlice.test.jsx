@@ -9,6 +9,7 @@ describe("wishSlice", () => {
   test("should return default state", () => {
     const result = wishListReducer(undefined, { type: "" });
     expect(result).toEqual({ wishItems: [] });
+    expect(result).toMatchSnapshot();
   });
   test("should add a new item to the state", () => {
     const action = {
@@ -42,6 +43,7 @@ describe("wishSlice", () => {
     };
     const result = wishListReducer({ wishItems: [wishItem] }, action);
     expect(result).toEqual({ wishItems: [] });
+    expect(result).toMatchSnapshot();
   });
   test("should add count to the item", () => {
     const wishItem = {

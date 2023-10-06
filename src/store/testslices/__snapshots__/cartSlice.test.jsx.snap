@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cartSlice should add a new item to the state 1`] = `
+Object {
+  "cartItems": Array [
+    Object {
+      "count": 1,
+      "id": 1,
+      "imageUrl": "image",
+      "name": "added",
+      "price": 100,
+      "size": "L",
+    },
+  ],
+  "totalPrice": 100,
+}
+`;
+
+exports[`cartSlice should remove the item from the state 1`] = `
+Object {
+  "cartItems": Array [],
+  "totalPrice": 0,
+}
+`;
+
+exports[`cartSlice should return default state 1`] = `
+Object {
+  "cartItems": Array [],
+  "totalPrice": 0,
+}
+`;
