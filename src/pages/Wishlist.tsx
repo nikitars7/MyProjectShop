@@ -32,7 +32,7 @@ const Wishlist: React.FC = () => {
           </div>
         </MyModal>
         <div className={styles.wishlist__items}>
-          <h2 className={styles.wishlist__title}>Wishlist</h2>
+          <h2 data-testid='wish-title' className={styles.wishlist__title}>Wishlist</h2>
           <div className={styles.list}>
             {wishItems && (
               <TransitionGroup>

@@ -3,14 +3,14 @@ import App from "./App";
 import "./index.css";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import { initStore } from "./store/store";
 import "./firebase";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <HashRouter>
-    <Provider store={store}>
+    <Provider store={initStore()}>
       <App />
     </Provider>
   </HashRouter>

@@ -54,8 +54,9 @@ const WishListItem: React.FC<WishListProps> = ({
           </div>
         </div>
       </div>
-      <div className={styles.item__count}>
+      <div data-testid='item-count' className={styles.item__count}>
         <button
+          data-testid='button-minus'
           onClick={onClickMinus}
           disabled={count === 1}
           className={
@@ -92,6 +93,7 @@ const WishListItem: React.FC<WishListProps> = ({
         </button>
         {count}
         <button
+          data-testid='button-plus'
           onClick={onCLickPlus}
           className={classNames(
             styles.item__button,
