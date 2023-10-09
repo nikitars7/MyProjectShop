@@ -1,11 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import img from "../img/logo-black.png";
-import HeaderSvgStar from "../iconsvg/HeaderSvgStar";
-import HeaderSvgBag from "../iconsvg/HeaderSvgBag";
+import { HeaderSvgBag,HeaderSvgStar } from "../iconsvg";
 import styles from "../styles/Header.module.scss";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import { useAppDispatch } from "../store/store";
-import { RootState } from "../store/store";
+import { useAppDispatch,RootState } from "../store/store";
 import { useEffect, useRef } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { logOut } from "../store/slices/userAuthSlice";

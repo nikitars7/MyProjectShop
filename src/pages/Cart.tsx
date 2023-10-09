@@ -1,7 +1,5 @@
-import CartItem from "../components/CartItem";
-import CartEmpty from "../components/CartEmpty";
-import SummaryCart from "../components/SummaryCart";
 import styles from "../styles/Cart.module.scss";
+import { CartItem,CartEmpty,SummaryCart } from "../components";
 import '../styles/ItemsTransition.scss'
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { RootState } from "../store/store";

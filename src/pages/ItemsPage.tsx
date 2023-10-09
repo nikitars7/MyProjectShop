@@ -1,18 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/ItemsPage.module.scss";
+import { Product,Filter,Skeleton } from "../components";
 import { RootState, useAppDispatch } from "../store/store";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { fetchProducts} from "../store/slices/productSlice";
-import Product from "../components/Product";
-import Filter from "../components/Filter";
 import MySelect from "../UI/select/MySelect";
 import { ratingList } from "../utils/RateList";
-import Skeleton from "../components/Skeleton";
 import { getPageCount } from "../utils/pages";
 import { usePagination } from "../hooks/usePagination";
 import classNames from "classnames";
 import { setPage } from "../store/slices/filterSlice";
-import { useObserver } from "../hooks/useObserver";
 const ItemsPage = () => {
   const [selectedSort, setSelectedSort] = useState<string>("");
   const [totalPages, setTotalPages] = useState<number>(0);
