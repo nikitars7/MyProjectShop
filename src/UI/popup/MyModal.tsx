@@ -13,7 +13,7 @@ const MyModal:React.FC<MyModalProps> = ({children,isVisible,setIsVisible}) => {
     contentClasses.push(styles.open)
   }
   return (
-    <div className={classNames(rootClasses)} onClick={()=> setIsVisible(!isVisible)} >
+    <div data-testid='my-modal' className={classNames(rootClasses)} onClick={()=> setIsVisible(!isVisible)} >
       <div className={classNames(contentClasses)} onClick={(e:React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
         {children}
       </div>

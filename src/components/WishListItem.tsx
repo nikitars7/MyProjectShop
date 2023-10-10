@@ -42,7 +42,7 @@ const WishListItem: React.FC<WishListProps> = ({
   return (
     <div className={styles.item}>
       <div className={styles.item__content}>
-        <button data-testid='button-remove' onClick={handleRemove} className={styles.item__delete}>
+        <button id='wish-remove' data-testid='button-remove' onClick={handleRemove} className={styles.item__delete}>
           <WishSvgGarbage />
         </button>
         <div className={styles.item__body}>

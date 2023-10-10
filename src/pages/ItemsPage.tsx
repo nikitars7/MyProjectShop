@@ -72,7 +72,7 @@ const ItemsPage = () => {
         ) : (
           <>
             {isLoading === "loading" &&
-              [...new Array(8)].map((_, index) => <Skeleton key={index} />)}
+             [...new Array(8)].map((_, index) => <Skeleton key={index} />)}
             {products.map((product) => (
               <Product product={product} key={product.id} />
             ))}

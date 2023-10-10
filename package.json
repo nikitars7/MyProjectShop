@@ -32,6 +32,7 @@
     "sass": "^1.58.3",
     "swiper": "^10.2.0",
     "typescript": "^5.2.2",
+    "wdio": "^6.0.1",
     "web-vitals": "^2.1.4"
   },
   "overrides": {
@@ -44,7 +45,9 @@
     "test:jest": "jest",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "wdio": "wdio run ./wdio.conf.js",
+    "test:e2e":"npx wdio run ./wdio.conf.js"
   },
   "eslintConfig": {
     "extends": [
@@ -72,6 +75,10 @@
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@types/react-transition-group": "^4.4.6",
+    "@wdio/cli": "^8.16.22",
+    "@wdio/local-runner": "^8.16.22",
+    "@wdio/mocha-framework": "^8.16.22",
+    "@wdio/spec-reporter": "^8.16.22",
     "ts-jest": "^29.1.1"
   }
 }

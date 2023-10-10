@@ -62,9 +62,9 @@ const ProductPage: React.FC = () => {
             <h2 className={styles.item__name}>product: {item.name}</h2>
             <div className={styles.item__size}>
               <h3 className={styles.item__title}>Sizes:</h3>
-              <ul className={styles.item__list}>
+              <ul id='size-list' className={styles.item__list}>
                 {item.sizes.map((size,index) => (
-                  <li onClick={() => setActiveSize(index)} key={size} className={activeSize === index ? classNames(styles.item__link , styles.active)  : styles.item__link}>
+                  <li id={index === 1  ? 'size-id' : ''} onClick={() => setActiveSize(index)} key={size} className={activeSize === index ? classNames(styles.item__link , styles.active)  : styles.item__link}>
                     {size}
                   </li>
                 ))}
@@ -78,6 +78,7 @@ const ProductPage: React.FC = () => {
             <img src={item.imageUrl} alt={item.name} />
             <button
               data-tooltip="Add to WishList"
+              id='product-wish-btn'
               onClick={handleClick}
               className={styles.add_to_wishlist}
             >
