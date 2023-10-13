@@ -93,6 +93,7 @@
     "@wdio/mocha-framework": "^8.16.22",
     "@wdio/spec-reporter": "^8.16.22",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromedriver": "^118.0.0",
     "eslint-plugin-storybook": "^0.6.15",
     "loki": "^0.32.0",
     "prop-types": "^15.8.1",
