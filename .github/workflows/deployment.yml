@@ -6,9 +6,6 @@ on:
       branches: [ main ]
 jobs:
    test:
-     strategy:
-      matrix:
-         node-version: [16,17]
      runs-on: ubuntu-latest
      steps:
        - name: Get repository code
@@ -16,7 +13,7 @@ jobs:
        - name: install Node JS
          uses: actions/setup-node@v3
          with:
-           node-version: ${{matrix.node-version}}
+           node-version: 18
        - name: Cache deps
          uses: actions/cache@v3
          with:
@@ -25,7 +22,12 @@ jobs:
        - name: Install dependencies
          run: npm ci
        - name: e2e tests 
-         run: npm run test:e2e
+         run: npm run wdio
+       - uses: actions/upload-artifact@v1
+         if: failure()
+         with:
+           name: logs
+           path: logs
    lint:
       runs-on: ubuntu-latest
       steps:
