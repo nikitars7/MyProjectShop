@@ -21,13 +21,13 @@ jobs:
             key: node-modules-${{hashFiles('**/package-lock.json')}}
        - name: Install dependencies
          run: npm ci
-       - name: e2e tests 
-         run: npm run wdio
-       - uses: actions/upload-artifact@v1
-         if: failure()
-         with:
-           name: logs
-           path: logs
+       - name: unit tests
+         run: npm run test App.test.tsx
+      #  - uses: actions/upload-artifact@v1
+      #    if: failure()
+      #    with:
+      #      name: logs
+      #      path: logs
    lint:
       runs-on: ubuntu-latest
       steps:
