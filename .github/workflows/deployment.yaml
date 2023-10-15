@@ -64,4 +64,7 @@ jobs:
            run: npm ci
          - name: Build application
            run: npm run build
+         - name: Deploy application
+           run: npm run deploy
+
       
