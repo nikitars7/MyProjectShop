@@ -1,22 +1,23 @@
-import {useEffect } from "react";
+import { useEffect } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import Product from "./Product";
 import classNames from "classnames";
 import styles from "../styles/Products.module.scss";
-import { fetchMainProducts} from "../store/slices/productSlice";
+import { fetchMainProducts } from "../store/slices/productSlice";
 import { RootState, useAppDispatch } from "../store/store";
 import { Link } from "react-router-dom";
-const Products:React.FC = () => {
-  const itemsMain = useTypedSelector((state:RootState) => state.productSlice.itemsMain)
+const Products: React.FC = () => {
+  const itemsMain = useTypedSelector(
+    (state: RootState) => state.productSlice.itemsMain
+  );
   const dispatch = useAppDispatch();
-  useEffect(()=>{
-    try{
-      dispatch(fetchMainProducts({limit:4}))
+  useEffect(() => {
+    try {
+      dispatch(fetchMainProducts({ limit: 4 }));
+    } catch (err: any) {
+      console.log(err.message);
     }
-    catch(err:any){
-     console.log(err.message)
-    }
-  },[])
+  }, []);
   return (
     <section className={styles.products}>
       <div className={styles.container}>

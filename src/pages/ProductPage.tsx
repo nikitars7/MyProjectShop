@@ -12,16 +12,15 @@ import { CartProduct } from "../store/slices/cartSlice";
 import classNames from "classnames";
 const ProductPage: React.FC = () => {
   const [item, setItem] = useState<FetchProduct>();
-  const [activeSize,setActiveSize] = useState<number>(0);
+  const [activeSize, setActiveSize] = useState<number>(0);
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  console.log(item)
   useEffect(() => {
     const getProduct = async () => {
       try {
         const { data } = await axios.get(
-          `https://6404ecfc40597b65de2d48a6.mockapi.io/Products/${id}`
+          `https://65907955cbf74b575ecad237.mockapi.io/products/${id}`
         );
         setItem(data);
       } catch (e) {
@@ -35,14 +34,16 @@ const ProductPage: React.FC = () => {
     navigate(-1);
   };
   const handleClick = () => {
-    dispatch(addToWishList({
-      id:item?.id,
-      imageUrl:item?.imageUrl,
-      name:item?.name,
-      price:item?.price,
-      count:0,
-      size:item?.sizes[activeSize]
-    } as CartProduct));
+    dispatch(
+      addToWishList({
+        id: item?.id,
+        imageUrl: item?.imageUrl,
+        name: item?.name,
+        price: item?.price,
+        count: 0,
+        size: item?.sizes[activeSize],
+      } as CartProduct)
+    );
   };
   if (!item) {
     return (
@@ -55,16 +56,25 @@ const ProductPage: React.FC = () => {
   }
   return (
     <div className={styles.container}>
-      <div data-testid='product-item' className={styles.item__content}>
+      <div data-testid="product-item" className={styles.item__content}>
         <div className={styles.item__desc}>
           <Button handleClick={handleClickBack}>Back</Button>
           <div className={styles.item__info}>
             <h2 className={styles.item__name}>product: {item.name}</h2>
             <div className={styles.item__size}>
               <h3 className={styles.item__title}>Sizes:</h3>
-              <ul id='size-list' className={styles.item__list}>
-                {item.sizes.map((size,index) => (
-                  <li id={index === 1  ? 'size-id' : ''} onClick={() => setActiveSize(index)} key={size} className={activeSize === index ? classNames(styles.item__link , styles.active)  : styles.item__link}>
+              <ul id="size-list" className={styles.item__list}>
+                {item.sizes.map((size, index) => (
+                  <li
+                    id={index === 1 ? "size-id" : ""}
+                    onClick={() => setActiveSize(index)}
+                    key={size}
+                    className={
+                      activeSize === index
+                        ? classNames(styles.item__link, styles.active)
+                        : styles.item__link
+                    }
+                  >
                     {size}
                   </li>
                 ))}
@@ -78,7 +88,7 @@ const ProductPage: React.FC = () => {
             <img src={item.imageUrl} alt={item.name} />
             <button
               data-tooltip="Add to WishList"
-              id='product-wish-btn'
+              id="product-wish-btn"
               onClick={handleClick}
               className={styles.add_to_wishlist}
             >
